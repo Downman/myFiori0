@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:DataServices m:DataServiceVersion="2.0"
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+        <Schema Namespace="ZMN_PROJECT_SRV" xml:lang="de"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZmnProject" sap:content-version="1"
+                xmlns:sap="http://www.sap.com/Protocols/SAPData">
+                <Key>
+                    <PropertyRef Name="Mandt"/>
+                    <PropertyRef Name="Projectid"/>
+                </Key>
+                <Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Mandant"/>
+                <Property Name="Projectid" Type="Edm.Int32" Nullable="false" sap:label="Zahl"/>
+                <Property Name="Customer" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="Startdate" Type="Edm.DateTime" Nullable="false" sap:label="Datum"/>
+                <Property Name="Enddate" Type="Edm.DateTime" Nullable="false" sap:label="Datum"/>
+                <Property Name="Active" Type="Edm.Int16" Nullable="false" sap:label="int"/>
+                <NavigationProperty Name="ProjectToEntries" Relationship="ZMN_PROJECT_SRV.ProjectToTimeEntry" FromRole="FromRole_ProjectToTimeEntry" ToRole="ToRole_ProjectToTimeEntry"/>
+            </EntityType>
+            <EntityType Name="ZmnTimeentry" sap:content-version="1"
+                xmlns:sap="http://www.sap.com/Protocols/SAPData">
+                <Key>
+                    <PropertyRef Name="Mandt"/>
+                    <PropertyRef Name="Timeentryid"/>
+                </Key>
+                <Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Mandant"/>
+                <Property Name="Timeentryid" Type="Edm.Int32" Nullable="false" sap:label="Zahl"/>
+                <Property Name="Entryday" Type="Edm.DateTime" Nullable="false" sap:label="Datum"/>
+                <Property Name="Activity" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="Entryhours" Type="Edm.Time" Nullable="false"/>
+                <Property Name="Traveltime" Type="Edm.Time" Nullable="false"/>
+                <Property Name="Additionalcost" Type="Edm.Int32" Nullable="false" sap:label="Zahl"/>
+                <Property Name="Entryuser" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Währung" sap:semantics="currency-code"/>
+                <Property Name="Projectid" Type="Edm.Int32" Nullable="false" sap:label="Zahl"/>
+            </EntityType>
+            <Association Name="ProjectToTimeEntry" sap:content-version="1"
+                xmlns:sap="http://www.sap.com/Protocols/SAPData">
+                <End Type="ZMN_PROJECT_SRV.ZmnProject" Multiplicity="1" Role="FromRole_ProjectToTimeEntry"/>
+                <End Type="ZMN_PROJECT_SRV.ZmnTimeentry" Multiplicity="*" Role="ToRole_ProjectToTimeEntry"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ProjectToTimeEntry">
+                        <PropertyRef Name="Mandt"/>
+                        <PropertyRef Name="Projectid"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ProjectToTimeEntry">
+                        <PropertyRef Name="Mandt"/>
+                        <PropertyRef Name="Projectid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZMN_PROJECT_SRV" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="ZmnTimeEntrySet" EntityType="ZMN_PROJECT_SRV.ZmnTimeentry" sap:content-version="1"
+                    xmlns:sap="http://www.sap.com/Protocols/SAPData"/>
+                    <EntitySet Name="ZmnProjectSet" EntityType="ZMN_PROJECT_SRV.ZmnProject" sap:content-version="1"
+                        xmlns:sap="http://www.sap.com/Protocols/SAPData"/>
+                        <AssociationSet Name="ProjectToTimeEntrySet" Association="ZMN_PROJECT_SRV.ProjectToTimeEntry" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"
+                            xmlns:sap="http://www.sap.com/Protocols/SAPData">
+                            <End EntitySet="ZmnProjectSet" Role="FromRole_ProjectToTimeEntry"/>
+                            <End EntitySet="ZmnTimeEntrySet" Role="ToRole_ProjectToTimeEntry"/>
+                        </AssociationSet>
+                    </EntityContainer>
+                    <atom:link rel="self" href="http://localhost:8080/webidedispatcher/destinations/X07/sap/opu/odata/sap/ZMN_PROJECT_SRV/$metadata"
+                        xmlns:atom="http://www.w3.org/2005/Atom"/>
+                        <atom:link rel="latest-version" href="http://localhost:8080/webidedispatcher/destinations/X07/sap/opu/odata/sap/ZMN_PROJECT_SRV/$metadata"
+                            xmlns:atom="http://www.w3.org/2005/Atom"/>
+                        </Schema>
+                    </edmx:DataServices>
+                </edmx:Edmx>

@@ -1,0 +1,1035 @@
+{
+	"ProjectCollection": [
+		{
+			"ProjectID": "ProjectID 1",
+			"Customer": "Customer 1",
+			"Descirption": "Descirption 1",
+			"StartDate": "/Date(1354701452000)/",
+			"EndDate": "/Date(1156928252000)/",
+			"Active": true,
+			"TimeEntries": [
+
+				{
+					"TimeEntryID": "TimeEntryID 1",
+					"Day": "/Date(1317632258000)/",
+					"Activity": "Activity 1",
+					"Hours": "3:36:53",
+					"TravelTime": "18:53:26",
+					"AdditionalCost": 8219.6,
+					"Currency": "Currency 1",
+					"User": "User 1"
+}, {
+					"TimeEntryID": "TimeEntryID 2",
+					"Day": "/Date(1478339858000)/",
+					"Activity": "Activity 2",
+					"Hours": "22:0:44",
+					"TravelTime": "16:18:14",
+					"AdditionalCost": 5999.02,
+					"Currency": "Currency 2",
+					"User": "User 2"
+}, {
+					"TimeEntryID": "TimeEntryID 3",
+					"Day": "/Date(1561971458000)/",
+					"Activity": "Activity 3",
+					"Hours": "12:32:2",
+					"TravelTime": "4:5:42",
+					"AdditionalCost": 9408.35,
+					"Currency": "Currency 3",
+					"User": "User 3"
+}, {
+					"TimeEntryID": "TimeEntryID 4",
+					"Day": "/Date(1118825858000)/",
+					"Activity": "Activity 4",
+					"Hours": "7:9:8",
+					"TravelTime": "11:47:33",
+					"AdditionalCost": 8135.03,
+					"Currency": "Currency 4",
+					"User": "User 4"
+}, {
+					"TimeEntryID": "TimeEntryID 5",
+					"Day": "/Date(1061542658000)/",
+					"Activity": "Activity 5",
+					"Hours": "18:21:36",
+					"TravelTime": "2:25:40",
+					"AdditionalCost": 733.21,
+					"Currency": "Currency 5",
+					"User": "User 5"
+}, {
+					"TimeEntryID": "TimeEntryID 6",
+					"Day": "/Date(1350723458000)/",
+					"Activity": "Activity 6",
+					"Hours": "0:42:57",
+					"TravelTime": "14:32:22",
+					"AdditionalCost": 125.21,
+					"Currency": "Currency 6",
+					"User": "User 6"
+}, {
+					"TimeEntryID": "TimeEntryID 7",
+					"Day": "/Date(1216544258000)/",
+					"Activity": "Activity 7",
+					"Hours": "11:30:51",
+					"TravelTime": "20:42:22",
+					"AdditionalCost": 7887.71,
+					"Currency": "Currency 7",
+					"User": "User 7"
+}, {
+					"TimeEntryID": "TimeEntryID 8",
+					"Day": "/Date(1162634258000)/",
+					"Activity": "Activity 8",
+					"Hours": "2:29:50",
+					"TravelTime": "18:55:26",
+					"AdditionalCost": 5900.54,
+					"Currency": "Currency 8",
+					"User": "User 8"
+}, {
+					"TimeEntryID": "TimeEntryID 9",
+					"Day": "/Date(1150793858000)/",
+					"Activity": "Activity 9",
+					"Hours": "21:22:21",
+					"TravelTime": "1:58:46",
+					"AdditionalCost": 6172.36,
+					"Currency": "Currency 9",
+					"User": "User 9"
+}, {
+					"TimeEntryID": "TimeEntryID 10",
+					"Day": "/Date(1048154258000)/",
+					"Activity": "Activity 10",
+					"Hours": "16:21:30",
+					"TravelTime": "4:13:0",
+					"AdditionalCost": 6268.94,
+					"Currency": "Currency 10",
+					"User": "User 10"
+}
+
+	]
+		},
+
+
+		{
+			"ProjectID": "ProjectID 2",
+			"Customer": "Customer 2",
+			"Descirption": "Descirption 2",
+			"StartDate": "/Date(1005472652000)/",
+			"EndDate": "/Date(1196243852000)/",
+			"Active": true,
+			"TimeEntries": [
+
+				{
+					"TimeEntryID": "TimeEntryID 1",
+					"Day": "/Date(1317632258000)/",
+					"Activity": "Activity 1",
+					"Hours": "3:36:53",
+					"TravelTime": "18:53:26",
+					"AdditionalCost": 8219.6,
+					"Currency": "Currency 1",
+					"User": "User 1"
+}, {
+					"TimeEntryID": "TimeEntryID 2",
+					"Day": "/Date(1478339858000)/",
+					"Activity": "Activity 2",
+					"Hours": "22:0:44",
+					"TravelTime": "16:18:14",
+					"AdditionalCost": 5999.02,
+					"Currency": "Currency 2",
+					"User": "User 2"
+}, {
+					"TimeEntryID": "TimeEntryID 3",
+					"Day": "/Date(1561971458000)/",
+					"Activity": "Activity 3",
+					"Hours": "12:32:2",
+					"TravelTime": "4:5:42",
+					"AdditionalCost": 9408.35,
+					"Currency": "Currency 3",
+					"User": "User 3"
+}, {
+					"TimeEntryID": "TimeEntryID 4",
+					"Day": "/Date(1118825858000)/",
+					"Activity": "Activity 4",
+					"Hours": "7:9:8",
+					"TravelTime": "11:47:33",
+					"AdditionalCost": 8135.03,
+					"Currency": "Currency 4",
+					"User": "User 4"
+}, {
+					"TimeEntryID": "TimeEntryID 5",
+					"Day": "/Date(1061542658000)/",
+					"Activity": "Activity 5",
+					"Hours": "18:21:36",
+					"TravelTime": "2:25:40",
+					"AdditionalCost": 733.21,
+					"Currency": "Currency 5",
+					"User": "User 5"
+}, {
+					"TimeEntryID": "TimeEntryID 6",
+					"Day": "/Date(1350723458000)/",
+					"Activity": "Activity 6",
+					"Hours": "0:42:57",
+					"TravelTime": "14:32:22",
+					"AdditionalCost": 125.21,
+					"Currency": "Currency 6",
+					"User": "User 6"
+}, {
+					"TimeEntryID": "TimeEntryID 7",
+					"Day": "/Date(1216544258000)/",
+					"Activity": "Activity 7",
+					"Hours": "11:30:51",
+					"TravelTime": "20:42:22",
+					"AdditionalCost": 7887.71,
+					"Currency": "Currency 7",
+					"User": "User 7"
+}, {
+					"TimeEntryID": "TimeEntryID 8",
+					"Day": "/Date(1162634258000)/",
+					"Activity": "Activity 8",
+					"Hours": "2:29:50",
+					"TravelTime": "18:55:26",
+					"AdditionalCost": 5900.54,
+					"Currency": "Currency 8",
+					"User": "User 8"
+}, {
+					"TimeEntryID": "TimeEntryID 9",
+					"Day": "/Date(1150793858000)/",
+					"Activity": "Activity 9",
+					"Hours": "21:22:21",
+					"TravelTime": "1:58:46",
+					"AdditionalCost": 6172.36,
+					"Currency": "Currency 9",
+					"User": "User 9"
+}, {
+					"TimeEntryID": "TimeEntryID 10",
+					"Day": "/Date(1048154258000)/",
+					"Activity": "Activity 10",
+					"Hours": "16:21:30",
+					"TravelTime": "4:13:0",
+					"AdditionalCost": 6268.94,
+					"Currency": "Currency 10",
+					"User": "User 10"
+}
+
+	]
+			},
+		{
+			"ProjectID": "ProjectID 3",
+			"Customer": "Customer 3",
+			"Descirption": "Descirption 3",
+			"StartDate": "/Date(1549965452000)/",
+			"EndDate": "/Date(1291888652000)/",
+			"Active": false,
+			"TimeEntries": [
+
+				{
+					"TimeEntryID": "TimeEntryID 1",
+					"Day": "/Date(1317632258000)/",
+					"Activity": "Activity 1",
+					"Hours": "3:36:53",
+					"TravelTime": "18:53:26",
+					"AdditionalCost": 8219.6,
+					"Currency": "Currency 1",
+					"User": "User 1"
+}, {
+					"TimeEntryID": "TimeEntryID 2",
+					"Day": "/Date(1478339858000)/",
+					"Activity": "Activity 2",
+					"Hours": "22:0:44",
+					"TravelTime": "16:18:14",
+					"AdditionalCost": 5999.02,
+					"Currency": "Currency 2",
+					"User": "User 2"
+}, {
+					"TimeEntryID": "TimeEntryID 3",
+					"Day": "/Date(1561971458000)/",
+					"Activity": "Activity 3",
+					"Hours": "12:32:2",
+					"TravelTime": "4:5:42",
+					"AdditionalCost": 9408.35,
+					"Currency": "Currency 3",
+					"User": "User 3"
+}, {
+					"TimeEntryID": "TimeEntryID 4",
+					"Day": "/Date(1118825858000)/",
+					"Activity": "Activity 4",
+					"Hours": "7:9:8",
+					"TravelTime": "11:47:33",
+					"AdditionalCost": 8135.03,
+					"Currency": "Currency 4",
+					"User": "User 4"
+}, {
+					"TimeEntryID": "TimeEntryID 5",
+					"Day": "/Date(1061542658000)/",
+					"Activity": "Activity 5",
+					"Hours": "18:21:36",
+					"TravelTime": "2:25:40",
+					"AdditionalCost": 733.21,
+					"Currency": "Currency 5",
+					"User": "User 5"
+}, {
+					"TimeEntryID": "TimeEntryID 6",
+					"Day": "/Date(1350723458000)/",
+					"Activity": "Activity 6",
+					"Hours": "0:42:57",
+					"TravelTime": "14:32:22",
+					"AdditionalCost": 125.21,
+					"Currency": "Currency 6",
+					"User": "User 6"
+}, {
+					"TimeEntryID": "TimeEntryID 7",
+					"Day": "/Date(1216544258000)/",
+					"Activity": "Activity 7",
+					"Hours": "11:30:51",
+					"TravelTime": "20:42:22",
+					"AdditionalCost": 7887.71,
+					"Currency": "Currency 7",
+					"User": "User 7"
+}, {
+					"TimeEntryID": "TimeEntryID 8",
+					"Day": "/Date(1162634258000)/",
+					"Activity": "Activity 8",
+					"Hours": "2:29:50",
+					"TravelTime": "18:55:26",
+					"AdditionalCost": 5900.54,
+					"Currency": "Currency 8",
+					"User": "User 8"
+}, {
+					"TimeEntryID": "TimeEntryID 9",
+					"Day": "/Date(1150793858000)/",
+					"Activity": "Activity 9",
+					"Hours": "21:22:21",
+					"TravelTime": "1:58:46",
+					"AdditionalCost": 6172.36,
+					"Currency": "Currency 9",
+					"User": "User 9"
+}, {
+					"TimeEntryID": "TimeEntryID 10",
+					"Day": "/Date(1048154258000)/",
+					"Activity": "Activity 10",
+					"Hours": "16:21:30",
+					"TravelTime": "4:13:0",
+					"AdditionalCost": 6268.94,
+					"Currency": "Currency 10",
+					"User": "User 10"
+}
+
+	]
+			},
+		{
+			"ProjectID": "ProjectID 4",
+			"Customer": "Customer 4",
+			"Descirption": "Descirption 4",
+			"StartDate": "/Date(1204538252000)/",
+			"EndDate": "/Date(1264413452000)/",
+			"Active": false,
+			"TimeEntries": [
+
+				{
+					"TimeEntryID": "TimeEntryID 1",
+					"Day": "/Date(1317632258000)/",
+					"Activity": "Activity 1",
+					"Hours": "3:36:53",
+					"TravelTime": "18:53:26",
+					"AdditionalCost": 8219.6,
+					"Currency": "Currency 1",
+					"User": "User 1"
+}, {
+					"TimeEntryID": "TimeEntryID 2",
+					"Day": "/Date(1478339858000)/",
+					"Activity": "Activity 2",
+					"Hours": "22:0:44",
+					"TravelTime": "16:18:14",
+					"AdditionalCost": 5999.02,
+					"Currency": "Currency 2",
+					"User": "User 2"
+}, {
+					"TimeEntryID": "TimeEntryID 3",
+					"Day": "/Date(1561971458000)/",
+					"Activity": "Activity 3",
+					"Hours": "12:32:2",
+					"TravelTime": "4:5:42",
+					"AdditionalCost": 9408.35,
+					"Currency": "Currency 3",
+					"User": "User 3"
+}, {
+					"TimeEntryID": "TimeEntryID 4",
+					"Day": "/Date(1118825858000)/",
+					"Activity": "Activity 4",
+					"Hours": "7:9:8",
+					"TravelTime": "11:47:33",
+					"AdditionalCost": 8135.03,
+					"Currency": "Currency 4",
+					"User": "User 4"
+}, {
+					"TimeEntryID": "TimeEntryID 5",
+					"Day": "/Date(1061542658000)/",
+					"Activity": "Activity 5",
+					"Hours": "18:21:36",
+					"TravelTime": "2:25:40",
+					"AdditionalCost": 733.21,
+					"Currency": "Currency 5",
+					"User": "User 5"
+}, {
+					"TimeEntryID": "TimeEntryID 6",
+					"Day": "/Date(1350723458000)/",
+					"Activity": "Activity 6",
+					"Hours": "0:42:57",
+					"TravelTime": "14:32:22",
+					"AdditionalCost": 125.21,
+					"Currency": "Currency 6",
+					"User": "User 6"
+}, {
+					"TimeEntryID": "TimeEntryID 7",
+					"Day": "/Date(1216544258000)/",
+					"Activity": "Activity 7",
+					"Hours": "11:30:51",
+					"TravelTime": "20:42:22",
+					"AdditionalCost": 7887.71,
+					"Currency": "Currency 7",
+					"User": "User 7"
+}, {
+					"TimeEntryID": "TimeEntryID 8",
+					"Day": "/Date(1162634258000)/",
+					"Activity": "Activity 8",
+					"Hours": "2:29:50",
+					"TravelTime": "18:55:26",
+					"AdditionalCost": 5900.54,
+					"Currency": "Currency 8",
+					"User": "User 8"
+}, {
+					"TimeEntryID": "TimeEntryID 9",
+					"Day": "/Date(1150793858000)/",
+					"Activity": "Activity 9",
+					"Hours": "21:22:21",
+					"TravelTime": "1:58:46",
+					"AdditionalCost": 6172.36,
+					"Currency": "Currency 9",
+					"User": "User 9"
+}, {
+					"TimeEntryID": "TimeEntryID 10",
+					"Day": "/Date(1048154258000)/",
+					"Activity": "Activity 10",
+					"Hours": "16:21:30",
+					"TravelTime": "4:13:0",
+					"AdditionalCost": 6268.94,
+					"Currency": "Currency 10",
+					"User": "User 10"
+}
+
+	]
+			},
+		{
+			"ProjectID": "ProjectID 5",
+			"Customer": "Customer 5",
+			"Descirption": "Descirption 5",
+			"StartDate": "/Date(1051520252000)/",
+			"EndDate": "/Date(1544522252000)/",
+			"Active": false,
+			"TimeEntries": [
+
+				{
+					"TimeEntryID": "TimeEntryID 1",
+					"Day": "/Date(1317632258000)/",
+					"Activity": "Activity 1",
+					"Hours": "3:36:53",
+					"TravelTime": "18:53:26",
+					"AdditionalCost": 8219.6,
+					"Currency": "Currency 1",
+					"User": "User 1"
+}, {
+					"TimeEntryID": "TimeEntryID 2",
+					"Day": "/Date(1478339858000)/",
+					"Activity": "Activity 2",
+					"Hours": "22:0:44",
+					"TravelTime": "16:18:14",
+					"AdditionalCost": 5999.02,
+					"Currency": "Currency 2",
+					"User": "User 2"
+}, {
+					"TimeEntryID": "TimeEntryID 3",
+					"Day": "/Date(1561971458000)/",
+					"Activity": "Activity 3",
+					"Hours": "12:32:2",
+					"TravelTime": "4:5:42",
+					"AdditionalCost": 9408.35,
+					"Currency": "Currency 3",
+					"User": "User 3"
+}, {
+					"TimeEntryID": "TimeEntryID 4",
+					"Day": "/Date(1118825858000)/",
+					"Activity": "Activity 4",
+					"Hours": "7:9:8",
+					"TravelTime": "11:47:33",
+					"AdditionalCost": 8135.03,
+					"Currency": "Currency 4",
+					"User": "User 4"
+}, {
+					"TimeEntryID": "TimeEntryID 5",
+					"Day": "/Date(1061542658000)/",
+					"Activity": "Activity 5",
+					"Hours": "18:21:36",
+					"TravelTime": "2:25:40",
+					"AdditionalCost": 733.21,
+					"Currency": "Currency 5",
+					"User": "User 5"
+}, {
+					"TimeEntryID": "TimeEntryID 6",
+					"Day": "/Date(1350723458000)/",
+					"Activity": "Activity 6",
+					"Hours": "0:42:57",
+					"TravelTime": "14:32:22",
+					"AdditionalCost": 125.21,
+					"Currency": "Currency 6",
+					"User": "User 6"
+}, {
+					"TimeEntryID": "TimeEntryID 7",
+					"Day": "/Date(1216544258000)/",
+					"Activity": "Activity 7",
+					"Hours": "11:30:51",
+					"TravelTime": "20:42:22",
+					"AdditionalCost": 7887.71,
+					"Currency": "Currency 7",
+					"User": "User 7"
+}, {
+					"TimeEntryID": "TimeEntryID 8",
+					"Day": "/Date(1162634258000)/",
+					"Activity": "Activity 8",
+					"Hours": "2:29:50",
+					"TravelTime": "18:55:26",
+					"AdditionalCost": 5900.54,
+					"Currency": "Currency 8",
+					"User": "User 8"
+}, {
+					"TimeEntryID": "TimeEntryID 9",
+					"Day": "/Date(1150793858000)/",
+					"Activity": "Activity 9",
+					"Hours": "21:22:21",
+					"TravelTime": "1:58:46",
+					"AdditionalCost": 6172.36,
+					"Currency": "Currency 9",
+					"User": "User 9"
+}, {
+					"TimeEntryID": "TimeEntryID 10",
+					"Day": "/Date(1048154258000)/",
+					"Activity": "Activity 10",
+					"Hours": "16:21:30",
+					"TravelTime": "4:13:0",
+					"AdditionalCost": 6268.94,
+					"Currency": "Currency 10",
+					"User": "User 10"
+}
+
+	]
+			},
+		{
+			"ProjectID": "ProjectID 6",
+			"Customer": "Customer 6",
+			"Descirption": "Descirption 6",
+			"StartDate": "/Date(969440252000)/",
+			"EndDate": "/Date(1074938252000)/",
+			"Active": false,
+			"TimeEntries": [
+
+				{
+					"TimeEntryID": "TimeEntryID 1",
+					"Day": "/Date(1317632258000)/",
+					"Activity": "Activity 1",
+					"Hours": "3:36:53",
+					"TravelTime": "18:53:26",
+					"AdditionalCost": 8219.6,
+					"Currency": "Currency 1",
+					"User": "User 1"
+}, {
+					"TimeEntryID": "TimeEntryID 2",
+					"Day": "/Date(1478339858000)/",
+					"Activity": "Activity 2",
+					"Hours": "22:0:44",
+					"TravelTime": "16:18:14",
+					"AdditionalCost": 5999.02,
+					"Currency": "Currency 2",
+					"User": "User 2"
+}, {
+					"TimeEntryID": "TimeEntryID 3",
+					"Day": "/Date(1561971458000)/",
+					"Activity": "Activity 3",
+					"Hours": "12:32:2",
+					"TravelTime": "4:5:42",
+					"AdditionalCost": 9408.35,
+					"Currency": "Currency 3",
+					"User": "User 3"
+}, {
+					"TimeEntryID": "TimeEntryID 4",
+					"Day": "/Date(1118825858000)/",
+					"Activity": "Activity 4",
+					"Hours": "7:9:8",
+					"TravelTime": "11:47:33",
+					"AdditionalCost": 8135.03,
+					"Currency": "Currency 4",
+					"User": "User 4"
+}, {
+					"TimeEntryID": "TimeEntryID 5",
+					"Day": "/Date(1061542658000)/",
+					"Activity": "Activity 5",
+					"Hours": "18:21:36",
+					"TravelTime": "2:25:40",
+					"AdditionalCost": 733.21,
+					"Currency": "Currency 5",
+					"User": "User 5"
+}, {
+					"TimeEntryID": "TimeEntryID 6",
+					"Day": "/Date(1350723458000)/",
+					"Activity": "Activity 6",
+					"Hours": "0:42:57",
+					"TravelTime": "14:32:22",
+					"AdditionalCost": 125.21,
+					"Currency": "Currency 6",
+					"User": "User 6"
+}, {
+					"TimeEntryID": "TimeEntryID 7",
+					"Day": "/Date(1216544258000)/",
+					"Activity": "Activity 7",
+					"Hours": "11:30:51",
+					"TravelTime": "20:42:22",
+					"AdditionalCost": 7887.71,
+					"Currency": "Currency 7",
+					"User": "User 7"
+}, {
+					"TimeEntryID": "TimeEntryID 8",
+					"Day": "/Date(1162634258000)/",
+					"Activity": "Activity 8",
+					"Hours": "2:29:50",
+					"TravelTime": "18:55:26",
+					"AdditionalCost": 5900.54,
+					"Currency": "Currency 8",
+					"User": "User 8"
+}, {
+					"TimeEntryID": "TimeEntryID 9",
+					"Day": "/Date(1150793858000)/",
+					"Activity": "Activity 9",
+					"Hours": "21:22:21",
+					"TravelTime": "1:58:46",
+					"AdditionalCost": 6172.36,
+					"Currency": "Currency 9",
+					"User": "User 9"
+}, {
+					"TimeEntryID": "TimeEntryID 10",
+					"Day": "/Date(1048154258000)/",
+					"Activity": "Activity 10",
+					"Hours": "16:21:30",
+					"TravelTime": "4:13:0",
+					"AdditionalCost": 6268.94,
+					"Currency": "Currency 10",
+					"User": "User 10"
+}
+
+	]
+			},
+		{
+			"ProjectID": "ProjectID 7",
+			"Customer": "Customer 7",
+			"Descirption": "Descirption 7",
+			"StartDate": "/Date(975923852000)/",
+			"EndDate": "/Date(1459933052000)/",
+			"Active": true,
+			"TimeEntries": [
+
+				{
+					"TimeEntryID": "TimeEntryID 1",
+					"Day": "/Date(1317632258000)/",
+					"Activity": "Activity 1",
+					"Hours": "3:36:53",
+					"TravelTime": "18:53:26",
+					"AdditionalCost": 8219.6,
+					"Currency": "Currency 1",
+					"User": "User 1"
+}, {
+					"TimeEntryID": "TimeEntryID 2",
+					"Day": "/Date(1478339858000)/",
+					"Activity": "Activity 2",
+					"Hours": "22:0:44",
+					"TravelTime": "16:18:14",
+					"AdditionalCost": 5999.02,
+					"Currency": "Currency 2",
+					"User": "User 2"
+}, {
+					"TimeEntryID": "TimeEntryID 3",
+					"Day": "/Date(1561971458000)/",
+					"Activity": "Activity 3",
+					"Hours": "12:32:2",
+					"TravelTime": "4:5:42",
+					"AdditionalCost": 9408.35,
+					"Currency": "Currency 3",
+					"User": "User 3"
+}, {
+					"TimeEntryID": "TimeEntryID 4",
+					"Day": "/Date(1118825858000)/",
+					"Activity": "Activity 4",
+					"Hours": "7:9:8",
+					"TravelTime": "11:47:33",
+					"AdditionalCost": 8135.03,
+					"Currency": "Currency 4",
+					"User": "User 4"
+}, {
+					"TimeEntryID": "TimeEntryID 5",
+					"Day": "/Date(1061542658000)/",
+					"Activity": "Activity 5",
+					"Hours": "18:21:36",
+					"TravelTime": "2:25:40",
+					"AdditionalCost": 733.21,
+					"Currency": "Currency 5",
+					"User": "User 5"
+}, {
+					"TimeEntryID": "TimeEntryID 6",
+					"Day": "/Date(1350723458000)/",
+					"Activity": "Activity 6",
+					"Hours": "0:42:57",
+					"TravelTime": "14:32:22",
+					"AdditionalCost": 125.21,
+					"Currency": "Currency 6",
+					"User": "User 6"
+}, {
+					"TimeEntryID": "TimeEntryID 7",
+					"Day": "/Date(1216544258000)/",
+					"Activity": "Activity 7",
+					"Hours": "11:30:51",
+					"TravelTime": "20:42:22",
+					"AdditionalCost": 7887.71,
+					"Currency": "Currency 7",
+					"User": "User 7"
+}, {
+					"TimeEntryID": "TimeEntryID 8",
+					"Day": "/Date(1162634258000)/",
+					"Activity": "Activity 8",
+					"Hours": "2:29:50",
+					"TravelTime": "18:55:26",
+					"AdditionalCost": 5900.54,
+					"Currency": "Currency 8",
+					"User": "User 8"
+}, {
+					"TimeEntryID": "TimeEntryID 9",
+					"Day": "/Date(1150793858000)/",
+					"Activity": "Activity 9",
+					"Hours": "21:22:21",
+					"TravelTime": "1:58:46",
+					"AdditionalCost": 6172.36,
+					"Currency": "Currency 9",
+					"User": "User 9"
+}, {
+					"TimeEntryID": "TimeEntryID 10",
+					"Day": "/Date(1048154258000)/",
+					"Activity": "Activity 10",
+					"Hours": "16:21:30",
+					"TravelTime": "4:13:0",
+					"AdditionalCost": 6268.94,
+					"Currency": "Currency 10",
+					"User": "User 10"
+}
+
+	]
+			},
+		{
+			"ProjectID": "ProjectID 8",
+			"Customer": "Customer 8",
+			"Descirption": "Descirption 8",
+			"StartDate": "/Date(1133171852000)/",
+			"EndDate": "/Date(989657852000)/",
+			"Active": false,
+			"TimeEntries": [
+
+				{
+					"TimeEntryID": "TimeEntryID 1",
+					"Day": "/Date(1317632258000)/",
+					"Activity": "Activity 1",
+					"Hours": "3:36:53",
+					"TravelTime": "18:53:26",
+					"AdditionalCost": 8219.6,
+					"Currency": "Currency 1",
+					"User": "User 1"
+}, {
+					"TimeEntryID": "TimeEntryID 2",
+					"Day": "/Date(1478339858000)/",
+					"Activity": "Activity 2",
+					"Hours": "22:0:44",
+					"TravelTime": "16:18:14",
+					"AdditionalCost": 5999.02,
+					"Currency": "Currency 2",
+					"User": "User 2"
+}, {
+					"TimeEntryID": "TimeEntryID 3",
+					"Day": "/Date(1561971458000)/",
+					"Activity": "Activity 3",
+					"Hours": "12:32:2",
+					"TravelTime": "4:5:42",
+					"AdditionalCost": 9408.35,
+					"Currency": "Currency 3",
+					"User": "User 3"
+}, {
+					"TimeEntryID": "TimeEntryID 4",
+					"Day": "/Date(1118825858000)/",
+					"Activity": "Activity 4",
+					"Hours": "7:9:8",
+					"TravelTime": "11:47:33",
+					"AdditionalCost": 8135.03,
+					"Currency": "Currency 4",
+					"User": "User 4"
+}, {
+					"TimeEntryID": "TimeEntryID 5",
+					"Day": "/Date(1061542658000)/",
+					"Activity": "Activity 5",
+					"Hours": "18:21:36",
+					"TravelTime": "2:25:40",
+					"AdditionalCost": 733.21,
+					"Currency": "Currency 5",
+					"User": "User 5"
+}, {
+					"TimeEntryID": "TimeEntryID 6",
+					"Day": "/Date(1350723458000)/",
+					"Activity": "Activity 6",
+					"Hours": "0:42:57",
+					"TravelTime": "14:32:22",
+					"AdditionalCost": 125.21,
+					"Currency": "Currency 6",
+					"User": "User 6"
+}, {
+					"TimeEntryID": "TimeEntryID 7",
+					"Day": "/Date(1216544258000)/",
+					"Activity": "Activity 7",
+					"Hours": "11:30:51",
+					"TravelTime": "20:42:22",
+					"AdditionalCost": 7887.71,
+					"Currency": "Currency 7",
+					"User": "User 7"
+}, {
+					"TimeEntryID": "TimeEntryID 8",
+					"Day": "/Date(1162634258000)/",
+					"Activity": "Activity 8",
+					"Hours": "2:29:50",
+					"TravelTime": "18:55:26",
+					"AdditionalCost": 5900.54,
+					"Currency": "Currency 8",
+					"User": "User 8"
+}, {
+					"TimeEntryID": "TimeEntryID 9",
+					"Day": "/Date(1150793858000)/",
+					"Activity": "Activity 9",
+					"Hours": "21:22:21",
+					"TravelTime": "1:58:46",
+					"AdditionalCost": 6172.36,
+					"Currency": "Currency 9",
+					"User": "User 9"
+}, {
+					"TimeEntryID": "TimeEntryID 10",
+					"Day": "/Date(1048154258000)/",
+					"Activity": "Activity 10",
+					"Hours": "16:21:30",
+					"TravelTime": "4:13:0",
+					"AdditionalCost": 6268.94,
+					"Currency": "Currency 10",
+					"User": "User 10"
+}
+
+	]
+			},
+		{
+			"ProjectID": "ProjectID 9",
+			"Customer": "Customer 9",
+			"Descirption": "Descirption 9",
+			"StartDate": "/Date(1551693452000)/",
+			"EndDate": "/Date(1305017852000)/",
+			"Active": true,
+			"TimeEntries": [
+
+				{
+					"TimeEntryID": "TimeEntryID 1",
+					"Day": "/Date(1317632258000)/",
+					"Activity": "Activity 1",
+					"Hours": "3:36:53",
+					"TravelTime": "18:53:26",
+					"AdditionalCost": 8219.6,
+					"Currency": "Currency 1",
+					"User": "User 1"
+}, {
+					"TimeEntryID": "TimeEntryID 2",
+					"Day": "/Date(1478339858000)/",
+					"Activity": "Activity 2",
+					"Hours": "22:0:44",
+					"TravelTime": "16:18:14",
+					"AdditionalCost": 5999.02,
+					"Currency": "Currency 2",
+					"User": "User 2"
+}, {
+					"TimeEntryID": "TimeEntryID 3",
+					"Day": "/Date(1561971458000)/",
+					"Activity": "Activity 3",
+					"Hours": "12:32:2",
+					"TravelTime": "4:5:42",
+					"AdditionalCost": 9408.35,
+					"Currency": "Currency 3",
+					"User": "User 3"
+}, {
+					"TimeEntryID": "TimeEntryID 4",
+					"Day": "/Date(1118825858000)/",
+					"Activity": "Activity 4",
+					"Hours": "7:9:8",
+					"TravelTime": "11:47:33",
+					"AdditionalCost": 8135.03,
+					"Currency": "Currency 4",
+					"User": "User 4"
+}, {
+					"TimeEntryID": "TimeEntryID 5",
+					"Day": "/Date(1061542658000)/",
+					"Activity": "Activity 5",
+					"Hours": "18:21:36",
+					"TravelTime": "2:25:40",
+					"AdditionalCost": 733.21,
+					"Currency": "Currency 5",
+					"User": "User 5"
+}, {
+					"TimeEntryID": "TimeEntryID 6",
+					"Day": "/Date(1350723458000)/",
+					"Activity": "Activity 6",
+					"Hours": "0:42:57",
+					"TravelTime": "14:32:22",
+					"AdditionalCost": 125.21,
+					"Currency": "Currency 6",
+					"User": "User 6"
+}, {
+					"TimeEntryID": "TimeEntryID 7",
+					"Day": "/Date(1216544258000)/",
+					"Activity": "Activity 7",
+					"Hours": "11:30:51",
+					"TravelTime": "20:42:22",
+					"AdditionalCost": 7887.71,
+					"Currency": "Currency 7",
+					"User": "User 7"
+}, {
+					"TimeEntryID": "TimeEntryID 8",
+					"Day": "/Date(1162634258000)/",
+					"Activity": "Activity 8",
+					"Hours": "2:29:50",
+					"TravelTime": "18:55:26",
+					"AdditionalCost": 5900.54,
+					"Currency": "Currency 8",
+					"User": "User 8"
+}, {
+					"TimeEntryID": "TimeEntryID 9",
+					"Day": "/Date(1150793858000)/",
+					"Activity": "Activity 9",
+					"Hours": "21:22:21",
+					"TravelTime": "1:58:46",
+					"AdditionalCost": 6172.36,
+					"Currency": "Currency 9",
+					"User": "User 9"
+}, {
+					"TimeEntryID": "TimeEntryID 10",
+					"Day": "/Date(1048154258000)/",
+					"Activity": "Activity 10",
+					"Hours": "16:21:30",
+					"TravelTime": "4:13:0",
+					"AdditionalCost": 6268.94,
+					"Currency": "Currency 10",
+					"User": "User 10"
+}
+
+	]
+			},
+		{
+			"ProjectID": "ProjectID 10",
+			"Customer": "Customer 10",
+			"Descirption": "Descirption 10",
+			"StartDate": "/Date(1432457852000)/",
+			"EndDate": "/Date(1404464252000)/",
+			"Active": true,
+			"TimeEntries": [
+
+				{
+					"TimeEntryID": "TimeEntryID 1",
+					"Day": "/Date(1317632258000)/",
+					"Activity": "Activity 1",
+					"Hours": "3:36:53",
+					"TravelTime": "18:53:26",
+					"AdditionalCost": 8219.6,
+					"Currency": "Currency 1",
+					"User": "User 1"
+}, {
+					"TimeEntryID": "TimeEntryID 2",
+					"Day": "/Date(1478339858000)/",
+					"Activity": "Activity 2",
+					"Hours": "22:0:44",
+					"TravelTime": "16:18:14",
+					"AdditionalCost": 5999.02,
+					"Currency": "Currency 2",
+					"User": "User 2"
+}, {
+					"TimeEntryID": "TimeEntryID 3",
+					"Day": "/Date(1561971458000)/",
+					"Activity": "Activity 3",
+					"Hours": "12:32:2",
+					"TravelTime": "4:5:42",
+					"AdditionalCost": 9408.35,
+					"Currency": "Currency 3",
+					"User": "User 3"
+}, {
+					"TimeEntryID": "TimeEntryID 4",
+					"Day": "/Date(1118825858000)/",
+					"Activity": "Activity 4",
+					"Hours": "7:9:8",
+					"TravelTime": "11:47:33",
+					"AdditionalCost": 8135.03,
+					"Currency": "Currency 4",
+					"User": "User 4"
+}, {
+					"TimeEntryID": "TimeEntryID 5",
+					"Day": "/Date(1061542658000)/",
+					"Activity": "Activity 5",
+					"Hours": "18:21:36",
+					"TravelTime": "2:25:40",
+					"AdditionalCost": 733.21,
+					"Currency": "Currency 5",
+					"User": "User 5"
+}, {
+					"TimeEntryID": "TimeEntryID 6",
+					"Day": "/Date(1350723458000)/",
+					"Activity": "Activity 6",
+					"Hours": "0:42:57",
+					"TravelTime": "14:32:22",
+					"AdditionalCost": 125.21,
+					"Currency": "Currency 6",
+					"User": "User 6"
+}, {
+					"TimeEntryID": "TimeEntryID 7",
+					"Day": "/Date(1216544258000)/",
+					"Activity": "Activity 7",
+					"Hours": "11:30:51",
+					"TravelTime": "20:42:22",
+					"AdditionalCost": 7887.71,
+					"Currency": "Currency 7",
+					"User": "User 7"
+}, {
+					"TimeEntryID": "TimeEntryID 8",
+					"Day": "/Date(1162634258000)/",
+					"Activity": "Activity 8",
+					"Hours": "2:29:50",
+					"TravelTime": "18:55:26",
+					"AdditionalCost": 5900.54,
+					"Currency": "Currency 8",
+					"User": "User 8"
+}, {
+					"TimeEntryID": "TimeEntryID 9",
+					"Day": "/Date(1150793858000)/",
+					"Activity": "Activity 9",
+					"Hours": "21:22:21",
+					"TravelTime": "1:58:46",
+					"AdditionalCost": 6172.36,
+					"Currency": "Currency 9",
+					"User": "User 9"
+}, {
+					"TimeEntryID": "TimeEntryID 10",
+					"Day": "/Date(1048154258000)/",
+					"Activity": "Activity 10",
+					"Hours": "16:21:30",
+					"TravelTime": "4:13:0",
+					"AdditionalCost": 6268.94,
+					"Currency": "Currency 10",
+					"User": "User 10"
+}
+
+	]
+			}]
+}

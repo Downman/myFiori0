@@ -1,0 +1,32 @@
+<core:View controllerName="sap.ui.demo.myFiori.view.Master" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Page title="{i18n>MasterTitle}">
+		<subHeader>
+			<Bar>
+				<contentLeft>
+					<SearchField search="handleSearch" width="100%"></SearchField>
+				</contentLeft>
+			</Bar>
+		</subHeader>
+		<List id="list" items="{/ZmnProjectSet}" mode="{device>/listMode}" select="handleListSelect">
+			<ObjectListItem  press="handleListItemPress" number="{Projectid}" title="{Customer}" type="{device>/listItemType}">
+				<attributes>
+					<ObjectAttribute text="{Description}"/>
+				</attributes>
+				<firstStatus>
+					<ObjectStatus state="{ path: 'Active', formatter: 'sap.ui.demo.myFiori.util.Formatter.statusState' }"
+						text="{ path: 'Active', formatter: 'sap.ui.demo.myFiori.util.Formatter.statusText' }"/>
+				</firstStatus>
+			</ObjectListItem>
+		</List>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Select autoAdjustWidth="true" change="handleGroup" icon="sap-icon://group-2" id="groupSelect" selectedKey="None" type="IconOnly">
+						<core:Item key="None" text="{i18n>MasterGroupNone}"/>
+						<core:Item key="Active" text="{i18n>MasterGroupStatus}"/>
+					</Select>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>
