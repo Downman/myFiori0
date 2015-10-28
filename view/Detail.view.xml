@@ -27,9 +27,9 @@
 							</columns>
 							<ColumnListItem press="handleLineItemPress" type="Navigation">
 								<cells>
-									<!--ObjectIdentifier title="{path: 'Day', formatter: 'sap.ui.demo.myFiori.util.Formatter.date' }"></ObjectIdentifier!-->
-									<ObjectIdentifier title="{Entryday}"></ObjectIdentifier>
-									<ObjectNumber number="{Entryhours}"/>
+									<ObjectIdentifier title="{path: 'Entryday', formatter: 'sap.ui.demo.myFiori.util.Formatter.date' }"></ObjectIdentifier>
+									<Text
+										text="{path: 'Entryhours', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH\'h\':mm\'min\'', source: { pattern: 'HH:mm:ss' } } }"/>
 								</cells>
 							</ColumnListItem>
 						</Table>
@@ -64,11 +64,12 @@
 							</columns>
 							<ColumnListItem press="handleLineItemPressDetail" type="Navigation">
 								<cells>
-								    <ObjectIdentifier title="{Entryday}"></ObjectIdentifier>
-									<!--ObjectIdentifier title="{path: 'Entryday', formatter: 'sap.ui.demo.myFiori.util.Formatter.date'}"></ObjectIdentifier!-->
+									<ObjectIdentifier title="{path: 'Entryday', formatter: 'sap.ui.demo.myFiori.util.Formatter.date'}"></ObjectIdentifier>
 									<Text text="{Activity}"/>
-									<ObjectNumber number="{Entryhours}"/>
-									<ObjectNumber number="{Traveltime}"/>
+									<Text
+										text="{path: 'Entryhours', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH\'h\':mm\'min\'', source: { pattern: 'HH:mm:ss' } } }"/>
+									<Text
+										text="{path: 'Traveltime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH\'h\':mm\'min\'', source: { pattern: 'HH:mm:ss' } } }"/>
 									<ObjectNumber number="{Additionalcost}"/>
 								</cells>
 							</ColumnListItem>
@@ -76,14 +77,15 @@
 					</form:SimpleForm>
 				</IconTabFilter>
 				<IconTabFilter icon="sap-icon://add" key="Add">
-					<form:SimpleForm emptySpanL="4" id="mySimpleForm5" editable="true" class="editableForm" columnsM="1" columnsL="1" emptySpanM="4" labelSpanL="3"
+					<form:SimpleForm emptySpanM="4" emptySpanL="4" editable="true" class="editableForm" columnsM="1" columnsL="1" id="mySimpleForm5" labelSpanL="3"
 						labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="1024">
 						<smartField:SmartLabel labelFor="idProject1" text="{i18n>DateText}"/>
 						<DatePicker class="sapUiSmallMarginBottom" id="idProject1" value="{Entryday}"/>
 						<smartField:SmartLabel labelFor="idProject2" text="{i18n>ActivityText}"/>
 						<smartField:SmartField id="idProject2" value="{Activity}"/>
 						<smartField:SmartLabel labelFor="idProject3" text="{i18n>HoursText}"/>
-						<DateTimeInput class="sapUiSmallMarginBottom" value="{Entryhours}" placeholder="Enter Time ..." type="Time" step="600" valueFormat="HH:mm" displayFormat="H'h' m'm'" id="idProject3"/>
+						<DateTimeInput class="sapUiSmallMarginBottom" displayFormat="H'h' m'm'" id="idProject3" placeholder="Enter Time ..." step="600" type="Time"
+							value="{Entryhours}" valueFormat="HH:mm"/>
 						<smartField:SmartLabel labelFor="idProject4" text="{i18n>TravelTimeText}"/>
 						<smartField:SmartField id="idProject4" value="{Traveltime}"/>
 						<smartField:SmartLabel labelFor="idProject5" text="{i18n>AdditionalCostText}"/>
