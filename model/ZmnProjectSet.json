@@ -1,0 +1,181 @@
+{
+	"ZmnProjectSet": [
+		{
+			"Mandt": "Mandt 1",
+			"Projectid": 3550,
+			"Customer": "Customer 1",
+			"Description": "Description 1",
+			"Startdate": "/Date(1324479778000)/",
+			"Enddate": "/Date(1442844178000)/",
+			"Active": 166,
+			"__metadata": {
+				"uri": "ZmnProjectSet(Mandt='Mandt 1',Projectid=3550)",
+				"type": "ZMN_PROJECT_SRV.ZmnProject"
+			},
+			"ProjectToEntries": {
+				"__deferred": {
+					"uri": "ZmnProjectSet(Mandt='Mandt 1',Projectid=3550)/ProjectToEntries"
+				}
+			}
+}, {
+			"Mandt": "Mandt 2",
+			"Projectid": 8130,
+			"Customer": "Customer 2",
+			"Description": "Description 2",
+			"Startdate": "/Date(1174662178000)/",
+			"Enddate": "/Date(1434463378000)/",
+			"Active": 1061,
+			"__metadata": {
+				"uri": "ZmnProjectSet(Mandt='Mandt 2',Projectid=8130)",
+				"type": "ZMN_PROJECT_SRV.ZmnProject"
+			},
+			"ProjectToEntries": {
+
+				"__deferred": {
+					"uri": "ZmnProjectSet(Mandt='Mandt 2',Projectid=8130)/ProjectToEntries"
+				}
+			}
+}, {
+			"Mandt": "Mandt 3",
+			"Projectid": 3829,
+			"Customer": "Customer 3",
+			"Description": "Description 3",
+			"Startdate": "/Date(1276351378000)/",
+			"Enddate": "/Date(1077894178000)/",
+			"Active": 8710,
+			"__metadata": {
+				"uri": "ZmnProjectSet(Mandt='Mandt 3',Projectid=3829)",
+				"type": "ZMN_PROJECT_SRV.ZmnProject"
+			},
+			"ProjectToEntries": {
+				"__deferred": {
+					"uri": "ZmnProjectSet(Mandt='Mandt 3',Projectid=3829)/ProjectToEntries"
+				}
+			}
+}, {
+			"Mandt": "Mandt 4",
+			"Projectid": 160,
+			"Customer": "Customer 4",
+			"Description": "Description 4",
+			"Startdate": "/Date(1046444578000)/",
+			"Enddate": "/Date(1430488978000)/",
+			"Active": 9765,
+			"__metadata": {
+				"uri": "ZmnProjectSet(Mandt='Mandt 4',Projectid=160)",
+				"type": "ZMN_PROJECT_SRV.ZmnProject"
+			},
+			"ProjectToEntries": {
+				"__deferred": {
+					"uri": "ZmnProjectSet(Mandt='Mandt 4',Projectid=160)/ProjectToEntries"
+				}
+			}
+}, {
+			"Mandt": "Mandt 5",
+			"Projectid": 7536,
+			"Customer": "Customer 5",
+			"Description": "Description 5",
+			"Startdate": "/Date(1529762578000)/",
+			"Enddate": "/Date(1501077778000)/",
+			"Active": 1929,
+			"__metadata": {
+				"uri": "ZmnProjectSet(Mandt='Mandt 5',Projectid=7536)",
+				"type": "ZMN_PROJECT_SRV.ZmnProject"
+			},
+			"ProjectToEntries": {
+				"__deferred": {
+					"uri": "ZmnProjectSet(Mandt='Mandt 5',Projectid=7536)/ProjectToEntries"
+				}
+			}
+}, {
+			"Mandt": "Mandt 6",
+			"Projectid": 7754,
+			"Customer": "Customer 6",
+			"Description": "Description 6",
+			"Startdate": "/Date(1133449378000)/",
+			"Enddate": "/Date(1128780178000)/",
+			"Active": 7009,
+			"__metadata": {
+				"uri": "ZmnProjectSet(Mandt='Mandt 6',Projectid=7754)",
+				"type": "ZMN_PROJECT_SRV.ZmnProject"
+			},
+			"ProjectToEntries": {
+				"__deferred": {
+					"uri": "ZmnProjectSet(Mandt='Mandt 6',Projectid=7754)/ProjectToEntries"
+				}
+			}
+}, {
+			"Mandt": "Mandt 7",
+			"Projectid": 2642,
+			"Customer": "Customer 7",
+			"Description": "Description 7",
+			"Startdate": "/Date(1293894178000)/",
+			"Enddate": "/Date(1467381778000)/",
+			"Active": 5517,
+			"ProjectToEntries": [
+			 {
+						"Timeentryid": 4038,
+						"Entryday": "/Date(1444694400000)/",
+						"Activity": "Activity 7",
+						"Entryhours": "14:35",
+						"Traveltime": "14:35",
+						"Additionalcost": 3586,
+						"Entryuser": "Entryuser 7",
+						"Currency": "Currency 7",
+						"Projectid": 2642
+					
+			    }
+			]
+}, {
+			"Mandt": "Mandt 8",
+			"Projectid": 9366,
+			"Customer": "Customer 8",
+			"Description": "Description 8",
+			"Startdate": "/Date(1458399778000)/",
+			"Enddate": "/Date(1021298578000)/",
+			"Active": 4738,
+			"__metadata": {
+				"uri": "ZmnProjectSet(Mandt='Mandt 8',Projectid=9366)",
+				"type": "ZMN_PROJECT_SRV.ZmnProject"
+			},
+			"ProjectToEntries": {
+				"__deferred": {
+					"uri": "ZmnProjectSet(Mandt='Mandt 8',Projectid=9366)/ProjectToEntries"
+				}
+			}
+}, {
+			"Mandt": "Mandt 9",
+			"Projectid": 3359,
+			"Customer": "Customer 9",
+			"Description": "Description 9",
+			"Startdate": "/Date(1395068578000)/",
+			"Enddate": "/Date(965484178000)/",
+			"Active": 4667,
+			"__metadata": {
+				"uri": "ZmnProjectSet(Mandt='Mandt 9',Projectid=3359)",
+				"type": "ZMN_PROJECT_SRV.ZmnProject"
+			},
+			"ProjectToEntries": {
+				"__deferred": {
+					"uri": "ZmnProjectSet(Mandt='Mandt 9',Projectid=3359)/ProjectToEntries"
+				}
+			}
+}, {
+			"Mandt": "Mandt 10",
+			"Projectid": 2362,
+			"Customer": "Customer 10",
+			"Description": "Description 10",
+			"Startdate": "/Date(1083247378000)/",
+			"Enddate": "/Date(1371045778000)/",
+			"Active": 8745,
+			"__metadata": {
+				"uri": "ZmnProjectSet(Mandt='Mandt 10',Projectid=2362)",
+				"type": "ZMN_PROJECT_SRV.ZmnProject"
+			},
+			"ProjectToEntries": {
+				"__deferred": {
+					"uri": "ZmnProjectSet(Mandt='Mandt 10',Projectid=2362)/ProjectToEntries"
+				}
+			}
+}
+]
+}

@@ -7,12 +7,12 @@ jQuery.sap.require("sap.ui.demo.myFiori.util.Filter");
 sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 
 	newEntry: {
-		TimeEntries: [{
+		ProjectToEntries: [{
 			TimeEntryid: "TimeEntryID 1",
 			Entryday: "/Date(1)/",
 			Activity: "Activity 1",
-			Entryhours: "1:40 PM",
-			Traveltime: "18:53:26",
+			Entryhours: "PT15H01M41S",
+			Traveltime: "PT15H01M41S",
 			Additionalcost: "Enter amount",
 			Currency: "Enter Currency",
 			Entryuser: "Enter Username",
@@ -102,13 +102,19 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 	handleLineItemPressDetail: function(evt) {
 		var context = evt.getSource().getBindingContext();
 		var test = context.oModel.getProperty(context.sPath, context);
-		var myDate = sap.ui.demo.myFiori.util.Formatter.myDateFormat(test.Entryday);
-		this.newEntry.TimeEntries[0].Entryday = myDate;
-		this.newEntry.TimeEntries[0].Activity = test.Activity;
-		this.newEntry.TimeEntries[0].Entryday = myDate.toString();
-		//	this.newEntry.TimeEntries[0].Hours = test.Hours;
-		this.newEntry.TimeEntries[0].TravelTime = test.TravelTime;
-		this.newEntry.TimeEntries[0].AdditionalCost = test.AdditionalCost;
+		//var myDate = sap.ui.demo.myFiori.util.Formatter.myDateFormat(test.Entryday);
+		this.newEntry.ProjectToEntries[0].Entryday = test.Entryday;
+		this.newEntry.ProjectToEntries[0].Activity = test.Activity;
+	//	this.newEntry.TimeEntries[0].Entryday = myDate.toString();
+	    var oEntryhours = test.Entryhours;
+	    var oMyOdate = new sap.ui.model.odata.type.Time(
+	        {
+	            source: oEntryhours,
+	            pattern: "HH:mm"
+	        });
+		this.newEntry.ProjectToEntries[0].Entryhours = oMyOdate;
+		this.newEntry.ProjectToEntries[0].Traveltime = test.Traveltime;
+		this.newEntry.ProjectToEntries[0].Additionalcost = test.Additionalcost;
 		this.getView().byId("idProject1").getModel().refresh();
 
 		//	var oBinding =  this.getView().byId("simpleTable2").getBinding("items").get
@@ -126,15 +132,15 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 			//oFilter = new sap.ui.model.Filter("Entryday", fnFilter);
 			oFilter = new sap.ui.model.odata.Filter('Entryday', [{
 				operator: "EQ",
-				value1: "2015-10-26T00:00:00"
+				value1: sap.ui.demo.myFiori.util.Filter.filterDate.getTime()
 	    }]);
 			oBinding.filter([oFilter]);
 		} else if (sKey === "Add") {
 			var tab = this.getView().byId("mySimpleForm5");
 			var tabItems = tab.getContent();
 			// oBinding.filter([]);
-		} else {
-		//	oBinding.filter([]);
+			//	} else {
+			//	oBinding.filter([]);
 		}
 	},
 
@@ -146,16 +152,18 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 
 		//	var fnFilter = sap.ui.demo.myFiori.util.Filter.filterDay;
 		//	oFilter = new sap.ui.model.Filter("Entryday",fnFilter);
-		oFilter = new sap.ui.model.odata.Filter('Entryday', [{
-			operator: "EQ",
-			value1: "2015-10-26T00:00:00"
-	    }]);
 
-		oBinding.filter([oFilter]);
 		var myLabel = this.getView().byId("monthLabel");
 		var sMillis = sap.ui.demo.myFiori.util.Filter.filterDate.getTime();
 		var sMonth = sap.ui.demo.myFiori.util.Grouper.getMonth(sMillis);
 		myLabel.setText(sMonth + " " + sap.ui.demo.myFiori.util.Filter.filterDate.getFullYear());
+
+		oFilter = new sap.ui.model.odata.Filter('Entryday', [{
+			operator: "EQ",
+			value1: sap.ui.demo.myFiori.util.Filter.filterDate.getTime()
+	    }]);
+
+		oBinding.filter([oFilter]);
 	},
 
 	//set next month and update Filterbinding

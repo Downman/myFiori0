@@ -21,28 +21,38 @@ sap.ui.demo.myFiori.util.Formatter = {
 
 	date: function(value) {
 		if (value) {
-			//value = value.replace('/Date(', '');
-			//value = value.replace(')/', '');
+			if (typeof value === 'string') {
+				value = value.replace('/Date(', '');
+				value = value.replace(')/', '');
+				var dat = new Date();
+				dat.setTime(value);
+				value = dat;
+			}
+
 			var oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({
 				pattern: "dd-MM-yyyy"
 			});
-			//var dat = new Date();
-			//dat.setTime(value);
+
 			return oDateFormat.format(value);
 		} else {
 			return value;
 		}
 	},
-	
+
 	myDateFormat: function(value) {
-	    		if (value) {
-			//value = value.replace('/Date(', '');
-			//value = value.replace(')/', '');
+		if (value) {
+			if (typeof value === 'string') {
+				value = value.replace('/Date(', '');
+				value = value.replace(')/', '');
+				var dat = new Date();
+				dat.setTime(value);
+				value = dat;
+			}
+
 			var oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({
 				pattern: "dd/MM/yy"
 			});
-			//var dat = new Date();
-			//dat.setTime(value);
+
 			return oDateFormat.format(value);
 		} else {
 			return value;

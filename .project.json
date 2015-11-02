@@ -8,9 +8,13 @@
   },
   "mockpreview": {
     "mockUri": "",
-    "metadataFilePath": "",
+    "metadataFilePath": "model/metadata.xml",
     "mockRequestsFilePath": "",
-    "loadJSONFiles": true,
+    "loadJSONFiles": false,
     "loadCustomRequests": false
+  },
+  "deploy": {
+    "destination": "X07",
+    "name": "ZMN_FIRSTAPP"
   }
 }

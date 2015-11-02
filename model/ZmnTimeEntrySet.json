@@ -1,0 +1,154 @@
+{
+    "ZmnTimeEntrySet" : [
+    {
+	"Mandt": "Mandt 1",
+	"Timeentryid": 1463,
+	"Entryday": "/Date(1014994973000)/",
+	"Activity": "Activity 1",
+	"Entryhours": "9:27:10",
+	"Traveltime": "0:23:53",
+	"Additionalcost": 3625,
+	"Entryuser": "Entryuser 1",
+	"Currency": "Currency 1",
+	"Projectid": 1325,
+	"__metadata": {
+		"uri": "ZmnTimeEntrySet(Mandt='Mandt 1',Timeentryid=1463)",
+		"type": "ZMN_PROJECT_SRV.ZmnTimeentry"
+	}
+}, {
+	"Mandt": "Mandt 2",
+	"Timeentryid": 4199,
+	"Entryday": "/Date(1215871373000)/",
+	"Activity": "Activity 2",
+	"Entryhours": "19:10:34",
+	"Traveltime": "14:35:18",
+	"Additionalcost": 172,
+	"Entryuser": "Entryuser 2",
+	"Currency": "Currency 2",
+	"Projectid": 6887,
+	"__metadata": {
+		"uri": "ZmnTimeEntrySet(Mandt='Mandt 2',Timeentryid=4199)",
+		"type": "ZMN_PROJECT_SRV.ZmnTimeentry"
+	}
+}, {
+	"Mandt": "Mandt 3",
+	"Timeentryid": 6096,
+	"Entryday": "/Date(1386255773000)/",
+	"Activity": "Activity 3",
+	"Entryhours": "14:32:28",
+	"Traveltime": "6:30:29",
+	"Additionalcost": 286,
+	"Entryuser": "Entryuser 3",
+	"Currency": "Currency 3",
+	"Projectid": 6034,
+	"__metadata": {
+		"uri": "ZmnTimeEntrySet(Mandt='Mandt 3',Timeentryid=6096)",
+		"type": "ZMN_PROJECT_SRV.ZmnTimeentry"
+	}
+}, {
+	"Mandt": "Mandt 4",
+	"Timeentryid": 8398,
+	"Entryday": "/Date(1171724573000)/",
+	"Activity": "Activity 4",
+	"Entryhours": "4:49:53",
+	"Traveltime": "14:21:11",
+	"Additionalcost": 4945,
+	"Entryuser": "Entryuser 4",
+	"Currency": "Currency 4",
+	"Projectid": 4464,
+	"__metadata": {
+		"uri": "ZmnTimeEntrySet(Mandt='Mandt 4',Timeentryid=8398)",
+		"type": "ZMN_PROJECT_SRV.ZmnTimeentry"
+	}
+}, {
+	"Mandt": "Mandt 5",
+	"Timeentryid": 9635,
+	"Entryday": "/Date(1344952973000)/",
+	"Activity": "Activity 5",
+	"Entryhours": "5:3:35",
+	"Traveltime": "6:6:7",
+	"Additionalcost": 8630,
+	"Entryuser": "Entryuser 5",
+	"Currency": "Currency 5",
+	"Projectid": 6749,
+	"__metadata": {
+		"uri": "ZmnTimeEntrySet(Mandt='Mandt 5',Timeentryid=9635)",
+		"type": "ZMN_PROJECT_SRV.ZmnTimeentry"
+	}
+}, {
+	"Mandt": "Mandt 6",
+	"Timeentryid": 8167,
+	"Entryday": "/Date(974473373000)/",
+	"Activity": "Activity 6",
+	"Entryhours": "12:32:25",
+	"Traveltime": "5:34:1",
+	"Additionalcost": 5750,
+	"Entryuser": "Entryuser 6",
+	"Currency": "Currency 6",
+	"Projectid": 2022,
+	"__metadata": {
+		"uri": "ZmnTimeEntrySet(Mandt='Mandt 6',Timeentryid=8167)",
+		"type": "ZMN_PROJECT_SRV.ZmnTimeentry"
+	}
+}, {
+	"Mandt": "Mandt 7",
+	"Timeentryid": 4038,
+	"Entryday": "/Date(1346508173000)/",
+	"Activity": "Activity 7",
+	"Entryhours": "19:39:0",
+	"Traveltime": "14:7:22",
+	"Additionalcost": 3586,
+	"Entryuser": "Entryuser 7",
+	"Currency": "Currency 7",
+	"Projectid": 6422,
+	"__metadata": {
+		"uri": "ZmnTimeEntrySet(Mandt='Mandt 7',Timeentryid=4038)",
+		"type": "ZMN_PROJECT_SRV.ZmnTimeentry"
+	}
+}, {
+	"Mandt": "Mandt 8",
+	"Timeentryid": 8145,
+	"Entryday": "/Date(965656973000)/",
+	"Activity": "Activity 8",
+	"Entryhours": "15:21:21",
+	"Traveltime": "0:40:16",
+	"Additionalcost": 6784,
+	"Entryuser": "Entryuser 8",
+	"Currency": "Currency 8",
+	"Projectid": 2717,
+	"__metadata": {
+		"uri": "ZmnTimeEntrySet(Mandt='Mandt 8',Timeentryid=8145)",
+		"type": "ZMN_PROJECT_SRV.ZmnTimeentry"
+	}
+}, {
+	"Mandt": "Mandt 9",
+	"Timeentryid": 4823,
+	"Entryday": "/Date(1393513373000)/",
+	"Activity": "Activity 9",
+	"Entryhours": "22:6:38",
+	"Traveltime": "3:36:22",
+	"Additionalcost": 9797,
+	"Entryuser": "Entryuser 9",
+	"Currency": "Currency 9",
+	"Projectid": 1271,
+	"__metadata": {
+		"uri": "ZmnTimeEntrySet(Mandt='Mandt 9',Timeentryid=4823)",
+		"type": "ZMN_PROJECT_SRV.ZmnTimeentry"
+	}
+}, {
+	"Mandt": "Mandt 10",
+	"Timeentryid": 5533,
+	"Entryday": "/Date(1343397773000)/",
+	"Activity": "Activity 10",
+	"Entryhours": "20:2:15",
+	"Traveltime": "8:26:52",
+	"Additionalcost": 3571,
+	"Entryuser": "Entryuser 10",
+	"Currency": "Currency 10",
+	"Projectid": 6080,
+	"__metadata": {
+		"uri": "ZmnTimeEntrySet(Mandt='Mandt 10',Timeentryid=5533)",
+		"type": "ZMN_PROJECT_SRV.ZmnTimeentry"
+	}
+}]
+}

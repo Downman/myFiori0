@@ -5,9 +5,14 @@ sap.ui.demo.myFiori.util.Filter = {
 	filterDate: new Date(),
 
 	filterDay: function(oDay) {
-		//oDay = oDay.replace('/DATE(', '');
-		//oDay = oDay.replace(')/', '');
-		//var myDate = new Date();
+	/*	if (typeof value === 'string') {
+			oDay = oDay.replace('/DATE(', '');
+			oDay = oDay.replace(')/', '');
+			var myDate = new Date();
+			myDate.setTime(oDay);
+
+		}
+*/
 		oDay.setTime(oDay);
 		if (sap.ui.demo.myFiori.util.Filter.filterDate.getMonth() === oDay.getMonth() && sap.ui.demo.myFiori.util.Filter.filterDate.getFullYear() ===
 			oDay.getFullYear()) {
@@ -18,10 +23,13 @@ sap.ui.demo.myFiori.util.Filter = {
 	},
 
 	setDate: function(oDay) {
-		//oDay = oDay.replace('/Date(', '');
-		//oDay = oDay.replace(')/', '');
-		//var myDate = new Date();
-		//myDate.setTime(oDay);
+		if (typeof value === 'string') {
+			oDay = oDay.replace('/Date(', '');
+			oDay = oDay.replace(')/', '');
+			var myDate = new Date();
+			myDate.setTime(oDay);
+			oDay = myDate;
+		}
 		sap.ui.demo.myFiori.util.Filter.filterDate = oDay;
 	},
 
