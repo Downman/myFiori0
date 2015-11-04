@@ -26,7 +26,7 @@ sap.ui.core.UIComponent.extend("sap.ui.demo.myFiori.Component", {
 		oView.setModel(i18nModel, "i18n");
 
 		// Create and set domain model to the component
-		
+	/*	
 		var url = "http://w2k12sap7.xeptum.local/sap/opu/odata/sap/ZMN_PROJECT_SRV/";
 		var oModel = new sap.ui.model.odata.ODataModel(url, {
 			json: true,
@@ -37,7 +37,7 @@ sap.ui.core.UIComponent.extend("sap.ui.demo.myFiori.Component", {
 		});
 		oModel.setDefaultBindingMode("TwoWay");
 		oView.setModel(oModel);
-		
+	*/	
 
 		//	var oModel = new sap.ui.model.odata.ODataModel("http://w2k12sap7.xeptum.local/sap/opu/odata/sap/ZMN_PROJECT_SRV/", {json: true,loadMetadataAsync: true});
 		//	oModel.attachMetadataFailed(function(){
@@ -45,11 +45,11 @@ sap.ui.core.UIComponent.extend("sap.ui.demo.myFiori.Component", {
 		//	},this);
 
 		// Using a local model for offline development
-/*
+
 		var oModel = new sap.ui.model.json.JSONModel("model/ZmnProjectSet.json");
 		oModel.setDefaultBindingMode("TwoWay");
 		oView.setModel(oModel);
-*/
+
 		var deviceModel = new sap.ui.model.json.JSONModel({
 			isPhone: jQuery.device.is.phone,
 			isNoPhone: !jQuery.device.is.phone,

@@ -6,6 +6,8 @@ jQuery.sap.require("sap.ui.demo.myFiori.util.Filter");
 
 sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 
+	mockData: true,
+
 	newEntry: {
 		ProjectToEntries: [{
 			TimeEntryid: "TimeEntryID 1",
@@ -105,13 +107,12 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 		//var myDate = sap.ui.demo.myFiori.util.Formatter.myDateFormat(test.Entryday);
 		this.newEntry.ProjectToEntries[0].Entryday = test.Entryday;
 		this.newEntry.ProjectToEntries[0].Activity = test.Activity;
-	//	this.newEntry.TimeEntries[0].Entryday = myDate.toString();
-	    var oEntryhours = test.Entryhours;
-	    var oMyOdate = new sap.ui.model.odata.type.Time(
-	        {
-	            source: oEntryhours,
-	            pattern: "HH:mm"
-	        });
+		//	this.newEntry.TimeEntries[0].Entryday = myDate.toString();
+		var oEntryhours = test.Entryhours;
+		var oMyOdate = new sap.ui.model.odata.type.Time({
+			source: oEntryhours,
+			pattern: "HH:mm"
+		});
 		this.newEntry.ProjectToEntries[0].Entryhours = oMyOdate;
 		this.newEntry.ProjectToEntries[0].Traveltime = test.Traveltime;
 		this.newEntry.ProjectToEntries[0].Additionalcost = test.Additionalcost;
@@ -128,12 +129,17 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 			sKey = evt.getParameter("selectedKey"),
 			oFilter;
 		if (sKey === "Detail") {
-			//var fnFilter = sap.ui.demo.myFiori.util.Filter.filterDay;
-			//oFilter = new sap.ui.model.Filter("Entryday", fnFilter);
-			oFilter = new sap.ui.model.odata.Filter('Entryday', [{
-				operator: "EQ",
-				value1: sap.ui.demo.myFiori.util.Filter.filterDate.getTime()
+
+			if (this.mockData) {
+				var fnFilter = sap.ui.demo.myFiori.util.Filter.filterDay;
+				oFilter = new sap.ui.model.Filter("Entryday", fnFilter);
+			} else {
+				oFilter = new sap.ui.model.odata.Filter('Entryday', [{
+					operator: "EQ",
+					value1: sap.ui.demo.myFiori.util.Filter.filterDate.getTime()
 	    }]);
+			}
+
 			oBinding.filter([oFilter]);
 		} else if (sKey === "Add") {
 			var tab = this.getView().byId("mySimpleForm5");
@@ -148,20 +154,23 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 	updateFilterBinding: function() {
 		var oBinding = this.getView().byId("simpleTable2").getBinding("items"),
 			oFilter;
-		//oBinding.filter([]);
 
-		//	var fnFilter = sap.ui.demo.myFiori.util.Filter.filterDay;
-		//	oFilter = new sap.ui.model.Filter("Entryday",fnFilter);
-
+		if (this.mockData) {
+			oBinding.filter([]);
+			var fnFilter = sap.ui.demo.myFiori.util.Filter.filterDay;
+			oFilter = new sap.ui.model.Filter("Entryday", fnFilter);
+		}
 		var myLabel = this.getView().byId("monthLabel");
 		var sMillis = sap.ui.demo.myFiori.util.Filter.filterDate.getTime();
 		var sMonth = sap.ui.demo.myFiori.util.Grouper.getMonth(sMillis);
 		myLabel.setText(sMonth + " " + sap.ui.demo.myFiori.util.Filter.filterDate.getFullYear());
 
-		oFilter = new sap.ui.model.odata.Filter('Entryday', [{
-			operator: "EQ",
-			value1: sap.ui.demo.myFiori.util.Filter.filterDate.getTime()
+		if (!this.mockData) {
+			oFilter = new sap.ui.model.odata.Filter('Entryday', [{
+				operator: "EQ",
+				value1: sap.ui.demo.myFiori.util.Filter.filterDate.getTime()
 	    }]);
+		}
 
 		oBinding.filter([oFilter]);
 	},

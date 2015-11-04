@@ -28,8 +28,9 @@
 							<ColumnListItem press="handleLineItemPress" type="Navigation">
 								<cells>
 									<ObjectIdentifier title="{path: 'Entryday', formatter: 'sap.ui.demo.myFiori.util.Formatter.date' }"></ObjectIdentifier>
-									<Text
-										text="{path: 'Entryhours', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH\'h\':mm\'min\'', source: { pattern: 'HH:mm:ss' } } }"/>
+									<Text text="{Entryhours}"/>
+									<!--Text
+										text="{path: 'Entryhours', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH\'h\':mm\'min\'', source: { pattern: 'HH:mm:ss' } } }"/!-->
 								</cells>
 							</ColumnListItem>
 						</Table>
@@ -66,10 +67,12 @@
 								<cells>
 									<ObjectIdentifier title="{path: 'Entryday', formatter: 'sap.ui.demo.myFiori.util.Formatter.date'}"></ObjectIdentifier>
 									<Text text="{Activity}"/>
-									<Text
+									<Text text="{Entryhours}"/>
+									<Text text="{Traveltime}"/>
+									<!--Text
 										text="{path: 'Entryhours', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH\'h\':mm\'min\'', source: { pattern: 'HH:mm:ss' } } }"/>
 									<Text
-										text="{path: 'Traveltime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH\'h\':mm\'min\'', source: { pattern: 'HH:mm:ss' } } }"/>
+										text="{path: 'Traveltime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH\'h\':mm\'min\'', source: { pattern: 'HH:mm:ss' } } }"/!-->
 									<ObjectNumber number="{Additionalcost}"/>
 								</cells>
 							</ColumnListItem>

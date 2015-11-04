@@ -58,8 +58,12 @@ sap.ui.demo.myFiori.util.Grouper = {
 	},
 
 	Day: function(oContext) {
+
 		//var date = sap.ui.demo.myFiori.util.Grouper.getMillis(oContext.getProperty("Entryday"));
 		var date = oContext.getProperty("Entryday");
+		if (typeof date === 'string') {
+			date = sap.ui.demo.myFiori.util.Grouper.getMillis(date);
+		}
 
 		var key = null,
 			text = null;
