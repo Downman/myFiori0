@@ -6,15 +6,15 @@ jQuery.sap.require("sap.ui.demo.myFiori.util.Filter");
 
 sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 
-	mockData: true,
+	mockData: false,
 
 	newEntry: {
 		ProjectToEntries: [{
-			TimeEntryid: "TimeEntryID 1",
-			Entryday: "/Date(1)/",
+			Timeentryid: 0,
+			Entryday: "28-11-2014",
 			Activity: "Activity 1",
-			Entryhours: "PT15H01M41S",
-			Traveltime: "PT15H01M41S",
+			Entryhours: "14:00",
+			Traveltime: "14:00",
 			Additionalcost: "Enter amount",
 			Currency: "Enter Currency",
 			Entryuser: "Enter Username",
@@ -68,6 +68,33 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 	},
 
 	handleApprove: function(evt) {
+
+		//testing update
+		var oData = {};
+		var oModel = this.getView().getModel();
+		var sUpdate;
+		var sTimeentryid = this.newEntry.ProjectToEntries[0].Timeentryid;
+		if (sTimeentryid > 0) {
+
+			oData.Activity = this.newEntry.ProjectToEntries[0].Activity;
+			oData.Additionalcost = Number(this.newEntry.ProjectToEntries[0].Additionalcost);
+			
+			oData.Entryday = sap.ui.demo.myFiori.util.Formatter.oldFormat(this.newEntry.ProjectToEntries[0].Entryday);
+			oData.Entryhours = sap.ui.demo.myFiori.util.Formatter.hoursMinutesToMs(this.newEntry.ProjectToEntries[0].Entryhours);
+			oData.Traveltime = sap.ui.demo.myFiori.util.Formatter.hoursMinutesToMs(this.newEntry.ProjectToEntries[0].Traveltime);
+			
+			//sap.ui.demo.myFiori.util.Formatter.hoursMinutesToMs(this.newEntry.ProjectToEntries[0].Entryhours);
+		//	oData.Activity = this.newEntry.ProjectToEntries[0].Activity;
+		//	oData.Activity = this.newE"ntry.ProjectToEntries[0].Activity;
+
+			sUpdate = "ZmnTimeEntrySet(Mandt='800',Timeentryid=" + sTimeentryid + ")";
+			oModel.update(sUpdate, oData, null, function() {
+				alert("Update successful");
+			}, function() {
+				alert("Update failed");
+			});
+
+		}
 		// show confirmation dialog
 		var bundle = this.getView().getModel("i18n").getResourceBundle();
 		sap.m.MessageBox.confirm(
@@ -104,17 +131,19 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 	handleLineItemPressDetail: function(evt) {
 		var context = evt.getSource().getBindingContext();
 		var test = context.oModel.getProperty(context.sPath, context);
+		var sEntryHours = sap.ui.demo.myFiori.util.Formatter.msToHoursMinutes(test.Entryhours.ms);
+		var sTraveltime = sap.ui.demo.myFiori.util.Formatter.msToHoursMinutes(test.Traveltime.ms);
+		var sEntryday = sap.ui.demo.myFiori.util.Formatter.date(test.Entryday);
+		
 		//var myDate = sap.ui.demo.myFiori.util.Formatter.myDateFormat(test.Entryday);
-		this.newEntry.ProjectToEntries[0].Entryday = test.Entryday;
+		this.newEntry.ProjectToEntries[0].Timeentryid = test.Timeentryid;
+		this.newEntry.ProjectToEntries[0].Entryday = sEntryday;
 		this.newEntry.ProjectToEntries[0].Activity = test.Activity;
-		//	this.newEntry.TimeEntries[0].Entryday = myDate.toString();
-		var oEntryhours = test.Entryhours;
-		var oMyOdate = new sap.ui.model.odata.type.Time({
-			source: oEntryhours,
-			pattern: "HH:mm"
-		});
-		this.newEntry.ProjectToEntries[0].Entryhours = oMyOdate;
-		this.newEntry.ProjectToEntries[0].Traveltime = test.Traveltime;
+
+		
+
+		this.newEntry.ProjectToEntries[0].Entryhours = sEntryHours;
+		this.newEntry.ProjectToEntries[0].Traveltime = sTraveltime;
 		this.newEntry.ProjectToEntries[0].Additionalcost = test.Additionalcost;
 		this.getView().byId("idProject1").getModel().refresh();
 
@@ -128,6 +157,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 		var oBinding = this.getView().byId("simpleTable2").getBinding("items"),
 			sKey = evt.getParameter("selectedKey"),
 			oFilter;
+
 		if (sKey === "Detail") {
 
 			if (this.mockData) {
@@ -148,6 +178,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 			//	} else {
 			//	oBinding.filter([]);
 		}
+
 	},
 
 	// update the filter binding of the Detail Tab

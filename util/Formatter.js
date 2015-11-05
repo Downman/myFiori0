@@ -39,6 +39,54 @@ sap.ui.demo.myFiori.util.Formatter = {
 		}
 	},
 
+	oldFormat: function(value) {
+		if (value) {
+
+			var sMM;
+			var sdd;
+			var sRet;
+			var oDate;
+
+			sdd = value.substring(0, 2);
+			sMM = value.substring(3, 5);
+			sRet = sMM + "-" + sdd + value.substring(5, value.length);
+			oDate = new Date(sRet);
+			oDate.setDate(oDate.getDate()+1);
+			return oDate;
+		} else {
+			return value;
+		}
+	},
+
+	hoursMinutesToMs: function(sHoursMins) {
+		var iHours;
+		var iMinutes;
+		var sPTString;
+
+		iHours = sHoursMins.substring(0, 2);
+		iMinutes = sHoursMins.substring(3, 5);
+		sPTString = "PT" + iHours + "H" + iMinutes + "M01S"; //PT15H01M41S
+		return sPTString;
+	},
+
+	msToHoursMinutes: function(iMillis) {
+		var sEntryHours;
+		var sHours;
+		var sMinutes;
+		sHours = iMillis;
+		sHours = Math.floor(sHours / 3600000);
+		sMinutes = iMillis;
+		sMinutes = Math.floor((sMinutes % 3600000) / 60000);
+		if (sHours < 9) {
+			sHours = "0" + sHours;
+		}
+		if (sMinutes < 9) {
+			sMinutes = "0" + sMinutes;
+		}
+		sEntryHours = sHours + ":" + sMinutes;
+		return sEntryHours;
+	},
+
 	myDateFormat: function(value) {
 		if (value) {
 			if (typeof value === 'string') {
