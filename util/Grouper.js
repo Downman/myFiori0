@@ -65,14 +65,14 @@ sap.ui.demo.myFiori.util.Grouper = {
 			date = sap.ui.demo.myFiori.util.Grouper.getMillis(date);
 		}
 
-		var key = null,
+		var status = null,
 			text = null;
 		var sMonth = sap.ui.demo.myFiori.util.Grouper.getMonth(date);
 
-		key = sap.ui.demo.myFiori.util.Grouper.getYear(date);
+		status = sap.ui.demo.myFiori.util.Grouper.getYear(date) + sMonth;
 		text = sMonth + " " + sap.ui.demo.myFiori.util.Grouper.getYear(date);
 		return {
-			key: key,
+			key: status,
 			text: text
 		};
 	}

@@ -51,7 +51,7 @@ sap.ui.demo.myFiori.util.Formatter = {
 			sMM = value.substring(3, 5);
 			sRet = sMM + "-" + sdd + value.substring(5, value.length);
 			oDate = new Date(sRet);
-			oDate.setDate(oDate.getDate()+1);
+			//oDate.setDate(oDate.getDate()+1);
 			return oDate;
 		} else {
 			return value;
