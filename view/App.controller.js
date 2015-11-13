@@ -15,6 +15,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.App", {
 		var app = this.getView().app,
 			sViewId = oData.viewId,
 			oDataObject = oData.data;
+	    
 
 		// load page on demand
 		var master = ("Master" === sViewId);
@@ -27,8 +28,9 @@ sap.ui.controller("sap.ui.demo.myFiori.view.App", {
 			app.addPage(page, false);
 		}
 		app.toDetail(sViewId);
-		if (oDataObject.bindingContext) {
+		if (oDataObject.bindingContext && sViewId === "Detail") {
 			var page = app.getPage(sViewId);
+			page.getController().switchToOverview();
 			page.setBindingContext(oDataObject.bindingContext);
 		}
 	}

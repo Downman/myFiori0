@@ -31,8 +31,9 @@ sap.ui.core.UIComponent.extend("sap.ui.demo.myFiori.Component", {
 		});
 		oModel.setDefaultBindingMode("TwoWay");
 		oView.setModel(oModel);
-        sap.ui.getCore().setModel(oModel);
-        
+		sap.ui.getCore().setModel(oModel);
+
+
 		//set the device Model
 		var deviceModel = new sap.ui.model.json.JSONModel({
 			isPhone: jQuery.device.is.phone,

@@ -11,11 +11,11 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 	newEntry: {
 		ProjectToEntries: [{
 			Timeentryid: 0,
-			Entryday: "28-11-2014",
+			Entryday: "13-11-2015",
 			Activity: "Activity 1",
-			Entryhours: "14:00",
-			Traveltime: "14:00",
-			Additionalcost: "Enter amount",
+			Entryhours: "01:00",
+			Traveltime: "00:00",
+			Additionalcost: "0",
 			Currency: "Enter Currency",
 			Entryuser: "Enter Username",
 			Test: "123"
@@ -249,10 +249,8 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 		oLabel.setText(sMonth + " " + sap.ui.demo.myFiori.util.Filter.filterDate.getFullYear());
 
 		//	oBinding.sort([]);
-		oFilter = new sap.ui.model.odata.Filter("Entryday", [{
-			operator: "EQ",
-			value1: sap.ui.demo.myFiori.util.Filter.filterDate.getTime()
-            }]);
+		//var oFilter = new sap.ui.model.Filter("Customer", sap.ui.model.FilterOperator.Contains, query.toUpperCase());
+		oFilter = new sap.ui.model.Filter("Entryday", sap.ui.model.FilterOperator.EQ, sap.ui.demo.myFiori.util.Filter.filterDate.getTime());
 		oBinding.sort([]);
 		oBinding.filter([oFilter]);
 	},

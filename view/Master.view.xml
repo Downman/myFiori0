@@ -25,6 +25,7 @@
 						<core:Item key="None" text="{i18n>MasterGroupNone}"/>
 						<core:Item key="Active" text="{i18n>MasterGroupStatus}"/>
 					</Select>
+					<Button autoAdjustWidth="true" press="handleAddProject" icon="sap-icon://add" id="addButton" />
 				</contentRight>
 			</Bar>
 		</footer>

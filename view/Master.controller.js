@@ -13,13 +13,24 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 		});
 	},
 
+	handleAddProject: function(evt) {
+		var context = evt.getSource().getBindingContext();
+		sap.ui.getCore().getEventBus().publish("nav", "to", {
+			viewId: "ProjectAdd",
+			data: {
+				bindingContext: context
+			}
+		});
+	},
+
 	handleSearch: function(evt) {
 		// create model filter
 		var filters = [];
 		var query = evt.getParameter("query");
 		if (query && query.length > 0) {
-			var filter = new sap.ui.model.Filter("Projectid", sap.ui.model.FilterOperator.Contains, query);
-			filters.push(filter);
+
+			var oFilter = new sap.ui.model.Filter("Customer", sap.ui.model.FilterOperator.Contains, query.toUpperCase());
+			filters.push(oFilter);
 		}
 
 		// update list binding
@@ -44,7 +55,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 		var sorters = [];
 		var item = evt.getParameter("selectedItem");
 		var key = (item) ? item.getKey() : null;
-		if ("Active" === key) {
+		if (key === "Active") {
 			sap.ui.demo.myFiori.util.Grouper.bundle = this.getView().getModel("i18n").getResourceBundle();
 			var grouper = sap.ui.demo.myFiori.util.Grouper[key];
 			sorters.push(new sap.ui.model.Sorter(key, true, grouper));
