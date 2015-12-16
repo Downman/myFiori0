@@ -60,7 +60,7 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 		var oBar, oButton;
 		oBar = new sap.m.Bar();
 		oButton = new sap.m.Button({
-			icon: "sap-icon://accept",
+			icon: "sap-icon://save",
 			press: [oController.handleApprove, oController],
 			text: "{i18n>ApproveButtonText}",
 			type: "Accept"

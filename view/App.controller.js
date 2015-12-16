@@ -31,9 +31,17 @@ sap.ui.controller("sap.ui.demo.myFiori.view.App", {
 			//page.setBindingContext(oDataObject.bindingContext);
 			page.bindElement(oDataObject.bindingContext.sPath);
 			page.getController().switchToOverview("context");
-		} else if (oDataObject.bindingContext && sViewId === "ProjectAdd") {
-			page = app.getPage(sViewId);
-			page.bindElement(oDataObject.bindingContext.sPath);
+		} else if (sViewId === "ProjectAdd") {
+
+			if (oDataObject.bindingContext) {
+				page = app.getPage(sViewId);
+				page.getController().editEntry(oDataObject.bindingContext.sPath);
+				page.bindElement(oDataObject.bindingContext.sPath);
+			} else {
+				page = app.getPage(sViewId);
+				page.getController().newEntry();
+			}
+			//	page.bindElement(oDataObject.bindingContext.sPath);
 		}
 	}
 

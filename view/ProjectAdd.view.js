@@ -80,7 +80,8 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.ProjectAdd", {
 
 		oDatePicker = new sap.m.DatePicker({
 			displayFormat: "long",
-			value: "{path: 'Startdate', type: 'sap.ui.model.odata.type.Date'}",
+			value: "{path: 'Startdate', formatter: 'sap.ui.demo.myFiori.util.Formatter.date'}",
+		//	value: "{path: 'Startdate', type: 'sap.ui.model.odata.type.Date'}",
 			valueFormat: "dd-MM-yyyy"
 		});
 		oDatePicker.addStyleClass("sapUiSmallMarginBottom");
@@ -94,7 +95,8 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.ProjectAdd", {
 
 		oDatePicker = new sap.m.DatePicker({
 			displayFormat: "long",
-			value: "{path: 'Enddate', type: 'sap.ui.model.odata.type.Date'}",
+			value: "{path: 'Enddate', formatter: 'sap.ui.demo.myFiori.util.Formatter.date'}",
+			//	value: "{path: 'Enddate', type: 'sap.ui.model.odata.type.Date'}",
 			valueFormat: "dd-MM-yyyy"
 		});
 		oDatePicker.addStyleClass("sapUiSmallMarginBottom");
@@ -117,6 +119,15 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.ProjectAdd", {
 		oButton.setVisible(true);
 		oBar.addContentRight(oButton);
 
+		oButton = new sap.m.Button({
+			icon: "sap-icon://save",
+			press: [oController.handleEdit, oController],
+			text: "{i18n>ApproveButtonText}",
+			type: "Accept"
+		});
+		oButton.setVisible(false);
+		oBar.addContentRight(oButton);
+
 		return oBar;
 	},
 
@@ -124,7 +135,8 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.ProjectAdd", {
 		var oAttributes, oHeader;
 		//Create Header
 		oHeader = new sap.m.ObjectHeader({
-			title: "{i18n>ProjectAddText}"
+			title: "{i18n>ProjectAddText}",
+			number: "{Projectid}"
 		}); //number="{Projectid}" title="{Customer}"
 
 		//Create header attributes and Status

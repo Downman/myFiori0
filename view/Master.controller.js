@@ -7,6 +7,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 		var oContext;
 		oContext = evt.getSource().getBindingContext();
 		this.Context = oContext;
+		this.getView().byId("editButton").setVisible(true);
 		sap.ui.getCore().getEventBus().publish("nav", "to", {
 			viewId: "Detail",
 			data: {
@@ -57,6 +58,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Master", {
 		var oContext;
 		oContext = evt.getParameter("listItem").getBindingContext();
 		this.Context = oContext;
+		this.getView().byId("editButton").setVisible(true);
 		sap.ui.getCore().getEventBus().publish("nav", "to", {
 			viewId: "Detail",
 			data: {
