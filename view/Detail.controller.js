@@ -11,14 +11,13 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 	newEntry: {
 		ProjectToEntries: [{
 			Timeentryid: 0,
-			Entryday: "13-11-2015",
-			Activity: "Activity 1",
-			Entryhours: "01:00",
+			Entryday: "01-01-1970",
+			Activity: "Enter Activity",
+			Entryhours: "00:00",
 			Traveltime: "00:00",
 			Additionalcost: "0",
 			Currency: "Enter Currency",
-			Entryuser: "Enter Username",
-			Test: "123"
+			Entryuser: "Enter Username"
 	}]
 	},
 
@@ -33,49 +32,54 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 		this.initNewEntry();
 	},
 
-	resetIconTab: function() {
-		this.getView().byId("iconTabBar").setSelectedKey("OverviewTab");
-	},
-
+	//Bind temporary JSON to AddTab
 	initNewEntry: function() {
-		var oInput;
-		var mySimpleForm = this.getView().AddForm;
-		var oModel = new sap.ui.model.json.JSONModel();
+		var mySimpleForm, oModel;
+		mySimpleForm = this.getView().AddForm;
+		oModel = new sap.ui.model.json.JSONModel();
 		oModel.setData(this.newEntry);
 		oModel.setDefaultBindingMode("TwoWay");
 		mySimpleForm.setModel(oModel);
-
-		for (var i = 0; i < 5; i++) {
-			oInput = mySimpleForm.getContent()[(i * 2) + 1];
-			oInput.bindElement("/ProjectToEntries/0");
-		}
+		mySimpleForm.bindElement("/ProjectToEntries/0");
 	},
 
 	//initialize the Overview content with groups
 	initOverview: function() {
-		var oBinding, sorters, grouper;
+		var sorters, grouper, oTable, oItem, oItemTemplate;
 		sap.ui.demo.myFiori.util.Grouper.bundle = this.getView().getModel("i18n").getResourceBundle();
 
-		oBinding = this.getView().Table.getBinding("items");
 		sorters = [];
 		grouper = sap.ui.demo.myFiori.util.Grouper.Day;
 		sorters.push(new sap.ui.model.Sorter("Entryday", true, grouper));
-		oBinding.sort(sorters);
+
+		oTable = this.getView().Table;
+		oItem = oTable.mBindingInfos.items.template;
+		oItemTemplate = oItem.clone();
+		oTable.unbindAggregation("items");
+		oTable.bindAggregation("items", {
+			path: "ProjectToEntries",
+			template: oItemTemplate,
+			sorter: sorters,
+			filters: []
+		});
 	},
 
+	//Handle Lineitem pressed event of list
 	handleLineItemPress: function(evt) {
 		var sTabKey;
 		sTabKey = this.getView().IconTabBar.getSelectedKey();
 		if (sTabKey === "OverviewTab") {
 			this.switchToDetail(evt);
-			//	this.updateFilterBinding();
 		} else if (sTabKey === "DetailTab") {
 			this.switchToAdd(evt);
 		}
 	},
 
+	//Switch to AddTab
 	switchToAdd: function(evt) {
-		var sTimeentryid = this.newEntry.ProjectToEntries[0].Timeentryid;
+		var sTimeentryid;
+		sTimeentryid = this.newEntry.ProjectToEntries[0].Timeentryid;
+		this.setVisibility("Add");
 		if (!(this.getView().IconTabBar.getSelectedKey() === "AddTab")) {
 			this.getView().IconTabBar.setSelectedKey("AddTab");
 		}
@@ -83,35 +87,53 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 			this.handleLineItemPressDetail(evt);
 			this.getView().Footer.getContentRight()[0].setVisible(true);
 			this.getView().Footer.getContentRight()[1].setVisible(true);
+			this.getView().Footer.getContentRight()[2].setVisible(true);
 		} else if (sTimeentryid !== 0) {
 			this.getView().Footer.getContentRight()[0].setVisible(true);
 			this.getView().Footer.getContentRight()[1].setVisible(true);
+			this.getView().Footer.getContentRight()[2].setVisible(true);
 
 		} else {
 			this.getView().Footer.getContentRight()[0].setVisible(false);
 			this.getView().Footer.getContentRight()[1].setVisible(true);
+			this.getView().Footer.getContentRight()[2].setVisible(false);
 		}
 
 	},
 
-	switchToDetail: function(evt) {
-		var aCols, oDate;
+	setVisibility: function(sState) {
+		var aCols, bVisible;
+		switch (sState) {
+			case "Overview":
+				bVisible = false;
+				break;
+			case "Detail":
+				bVisible = true;
+				break;
+		}
+		//header
+		this.getView().Table.setHeaderText(this.getView().getModel("i18n").getResourceBundle().getText(sState + "Text"));
+		aCols = this.getView().Table.getColumns();
+		//content
+		this.getView().DetailToolbar.setVisible(bVisible);
+		aCols[0].setVisible(bVisible);
+		aCols[1].setVisible(bVisible);
+		aCols[3].setVisible(bVisible);
+		aCols[4].setVisible(bVisible);
+		//footer
 		this.getView().Footer.getContentRight()[0].setVisible(false);
 		this.getView().Footer.getContentRight()[1].setVisible(false);
+		this.getView().Footer.getContentRight()[2].setVisible(false);
+	},
 
-		aCols = this.getView().Table.getColumns();
-		this.getView().Table.setHeaderText(this.getView().getModel("i18n").getResourceBundle().getText("DetailText"));
-		this.getView().DetailToolbar.setVisible(true);
-		aCols[0].setVisible(true);
-		aCols[1].setVisible(true);
-		aCols[3].setVisible(true);
-		aCols[4].setVisible(true);
-
+	//Switch to DetailTab
+	switchToDetail: function(evt) {
+		var oDate;
+		this.setVisibility("Detail");
 		if (evt != null) {
 			oDate = evt.getSource().mAggregations.cells[0].mProperties.text;
 			oDate = sap.ui.demo.myFiori.util.Formatter.oldFormat(oDate);
 			sap.ui.demo.myFiori.util.Filter.setDate(oDate);
-
 		}
 		this.updateMonthFilter();
 
@@ -121,49 +143,62 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 
 	},
 
-	switchToOverview: function() {
-		var aCols, oBinding, sorters, grouper;
+	//Switch to OverviewTab
+	switchToOverview: function(sContext) {
+		var sorters, grouper, oTable, oItem, oItemTemplate;
+		this.setVisibility("Overview");
 
-		this.getView().Footer.getContentRight()[0].setVisible(false);
-		this.getView().Footer.getContentRight()[1].setVisible(false);
-		aCols = this.getView().Table.getColumns();
-		this.getView().DetailToolbar.setVisible(false);
-		this.getView().Table.setHeaderText(this.getView().getModel("i18n").getResourceBundle().getText("OverviewText"));
-		aCols[0].setVisible(false);
-		aCols[1].setVisible(false);
-		aCols[3].setVisible(false);
-		aCols[4].setVisible(false);
+		//reset entry not very nice to do
+		if (sContext === "context") {
+			this.newEntry.ProjectToEntries[0].Timeentryid = 0;
+			this.newEntry.ProjectToEntries[0].Entryday = "01-01-1970";
+			this.newEntry.ProjectToEntries[0].Activity = "Enter Activity";
+			this.newEntry.ProjectToEntries[0].Entryhours = "00:00";
+			this.newEntry.ProjectToEntries[0].Traveltime = "00:00";
+			this.newEntry.ProjectToEntries[0].Additionalcost = "0";
+			this.newEntry.ProjectToEntries[0].Currency = "Enter Currency";
+			this.newEntry.ProjectToEntries[0].Entryuser = "Enter Username";
+			this.getView().AddForm.getContent()[1].setValue("01-01-1970");
+		}
 
-		oBinding = this.getView().Table.getBinding("items");
 		sorters = [];
 		grouper = sap.ui.demo.myFiori.util.Grouper.Day;
 		sorters.push(new sap.ui.model.Sorter("Entryday", true, grouper));
-		oBinding.filter([]);
-		oBinding.sort(sorters);
+
+		oTable = this.getView().Table;
+		oItem = oTable.mBindingInfos.items.template;
+		oItemTemplate = oItem.clone();
+		oTable.unbindAggregation("items");
+		oTable.bindAggregation("items", {
+			path: "ProjectToEntries",
+			template: oItemTemplate,
+			sorter: sorters,
+			filters: []
+		});
 
 		if (!(this.getView().IconTabBar.getSelectedKey() === "OverviewTab")) {
 			this.getView().IconTabBar.setSelectedKey("OverviewTab");
 		}
 	},
 
+	//handle Approve Update button
 	handleApprove: function() {
-
 		//testing update
-		var oData = {};
-		var oModel = this.getView().getModel();
-		var sUpdate;
-		var sTimeentryid = this.newEntry.ProjectToEntries[0].Timeentryid;
-		var that = this;
+		var oData, oModel, sUpdate, sTimeentryid, that, oBundle, sSuccessMsg;
+		oData = {};
+		oModel = this.getView().getModel();
+		sTimeentryid = this.newEntry.ProjectToEntries[0].Timeentryid;
+		that = this;
 
 		// show confirmation dialog
-		var bundle = this.getView().getModel("i18n").getResourceBundle();
+		oBundle = this.getView().getModel("i18n").getResourceBundle();
 		sap.m.MessageBox.confirm(
-			bundle.getText("ApproveDialogMsg"),
+			oBundle.getText("ApproveDialogMsg"),
 			function(oAction) {
 				if (sap.m.MessageBox.Action.OK === oAction) {
 					// notify user
-					var successMsg = bundle.getText("ApproveDialogSuccessMsg");
-					sap.m.MessageToast.show(successMsg);
+					sSuccessMsg = oBundle.getText("ApproveDialogSuccessMsg");
+					sap.m.MessageToast.show(sSuccessMsg);
 					// TODO call proper service method and update model (not part of this session)
 					if (sTimeentryid > 0) {
 
@@ -184,13 +219,14 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 
 				}
 			},
-			bundle.getText("ApproveDialogTitle")
+			oBundle.getText("ApproveDialogTitle")
 		);
 	},
 
 	handleAdd: function() {
-		var oModel = this.getView().getModel();
-		var oData = {};
+		var oModel, oData;
+		oModel = this.getView().getModel();
+		oData = {};
 		oData.Activity = this.newEntry.ProjectToEntries[0].Activity;
 		oData.Additionalcost = Number(this.newEntry.ProjectToEntries[0].Additionalcost);
 
@@ -206,22 +242,54 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 		});
 	},
 
+	handleDelete: function() {
+		//testing update
+		var oModel, sUpdate, sTimeentryid, oBundle;
+		oModel = this.getView().getModel();
+		sTimeentryid = this.newEntry.ProjectToEntries[0].Timeentryid;
+
+		// show confirmation dialog
+		oBundle = this.getView().getModel("i18n").getResourceBundle();
+		sap.m.MessageBox.confirm(
+			oBundle.getText("ApproveDialogMsg"),
+			function(oAction) {
+				if (sap.m.MessageBox.Action.OK === oAction) {
+					// notify user
+					var successMsg = oBundle.getText("DeleteeDialogSuccessMsg");
+					sap.m.MessageToast.show(successMsg);
+					// TODO call proper service method and update model (not part of this session)
+					if (sTimeentryid > 0) {
+
+						sUpdate = "ZmnTimeEntrySet(Mandt='800',Timeentryid=" + sTimeentryid + ")";
+						oModel.remove(sUpdate, null, function() {
+							alert("Removal successful");
+						}, function() {
+							alert("Removal failed");
+						});
+					}
+
+				}
+			},
+			oBundle.getText("ApproveDialogTitle")
+		);
+	},
+
 	//navigate to add tab and fill the newEntry with context data.
 	handleLineItemPressDetail: function(evt) {
-		var context = evt.getSource().getBindingContext();
-		var test = context.oModel.getProperty(context.sPath, context);
-		var sEntryHours = sap.ui.demo.myFiori.util.Formatter.msToHoursMinutes(test.Entryhours.ms);
-		var sTraveltime = sap.ui.demo.myFiori.util.Formatter.msToHoursMinutes(test.Traveltime.ms);
-		var sEntryday = sap.ui.demo.myFiori.util.Formatter.date(test.Entryday);
+		var oContext, oEntry, sEntryHours, sTraveltime, sEntryday;
+		oContext = evt.getSource().getBindingContext();
+		oEntry = oContext.oModel.getProperty(oContext.sPath, oContext);
+		sEntryHours = sap.ui.demo.myFiori.util.Formatter.msToHoursMinutes(oEntry.Entryhours.ms);
+		sTraveltime = sap.ui.demo.myFiori.util.Formatter.msToHoursMinutes(oEntry.Traveltime.ms);
+		sEntryday = sap.ui.demo.myFiori.util.Formatter.date(oEntry.Entryday);
 
-		//var myDate = sap.ui.demo.myFiori.util.Formatter.myDateFormat(test.Entryday);
-		this.newEntry.ProjectToEntries[0].Timeentryid = test.Timeentryid;
+		this.newEntry.ProjectToEntries[0].Timeentryid = oEntry.Timeentryid;
 		this.newEntry.ProjectToEntries[0].Entryday = sEntryday;
-		this.newEntry.ProjectToEntries[0].Activity = test.Activity;
+		this.newEntry.ProjectToEntries[0].Activity = oEntry.Activity;
 
 		this.newEntry.ProjectToEntries[0].Entryhours = sEntryHours;
 		this.newEntry.ProjectToEntries[0].Traveltime = sTraveltime;
-		this.newEntry.ProjectToEntries[0].Additionalcost = test.Additionalcost;
+		this.newEntry.ProjectToEntries[0].Additionalcost = oEntry.Additionalcost;
 		this.getView().AddForm.getModel().refresh();
 	},
 
@@ -229,7 +297,6 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 	handleIconTabBarSelect: function(evt) {
 		var sKey;
 		sKey = evt.getParameter("selectedKey");
-
 		if (sKey === "DetailTab") {
 			this.switchToDetail();
 		} else if (sKey === "AddTab") {
@@ -241,18 +308,24 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 
 	// update the filter binding of the Detail Tab
 	updateMonthFilter: function() {
-		var oBinding, oFilter, oLabel, sMillis, sMonth;
-		oBinding = this.getView().Table.getBinding("items");
+		var oFilter, oLabel, sMillis, sMonth, oTable, oItem, oItemTemplate;
 		oLabel = this.getView().MonthLabel;
 		sMillis = sap.ui.demo.myFiori.util.Filter.filterDate.getTime();
 		sMonth = sap.ui.demo.myFiori.util.Grouper.getMonth(sMillis);
 		oLabel.setText(sMonth + " " + sap.ui.demo.myFiori.util.Filter.filterDate.getFullYear());
 
-		//	oBinding.sort([]);
-		//var oFilter = new sap.ui.model.Filter("Customer", sap.ui.model.FilterOperator.Contains, query.toUpperCase());
 		oFilter = new sap.ui.model.Filter("Entryday", sap.ui.model.FilterOperator.EQ, sap.ui.demo.myFiori.util.Filter.filterDate.getTime());
-		oBinding.sort([]);
-		oBinding.filter([oFilter]);
+
+		oTable = this.getView().Table;
+		oItem = oTable.mBindingInfos.items.template;
+		oItemTemplate = oItem.clone();
+		oTable.unbindAggregation("items");
+		oTable.bindAggregation("items", {
+			path: "ProjectToEntries",
+			template: oItemTemplate,
+			sorter: [],
+			filters: [oFilter]
+		});
 	},
 
 	//set next month and update Filterbinding

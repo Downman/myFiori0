@@ -25,6 +25,32 @@
         "runnerId": "webapprunner",
         "displayName": "New Web Applicatio"
       }
+    },
+    {
+      "filePath": "/myFiori1/Component.js",
+      "previewMode": 0,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "_metadata": {
+        "id": 9731898,
+        "runnerId": "fiorirunner",
+        "displayName": "New SAP Fiori Component on Sandbox 1"
+      }
     }
   ]
 }

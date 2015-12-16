@@ -26,10 +26,10 @@ sap.ui.core.UIComponent.extend("sap.ui.demo.myFiori.Component", {
 			json: true,
 			withCredentials: true,
 			loadMetadataAsync: true,
-			user: 'xeptum01',
-			password: 'xeptum01'
+			user: "xeptum01",
+			password: "xeptum01"
 		});
-		oModel.setDefaultBindingMode("TwoWay");
+	//	oModel.setDefaultBindingMode("TwoWay");
 		oView.setModel(oModel);
 		sap.ui.getCore().setModel(oModel);
 

@@ -1,0 +1,10 @@
+{
+"applications" : { 
+            "MyFioriObject-display" : {
+                "additionalInformation" : "SAPUI5.Component=sap.ui.demo.myFiori",
+                "applicationType" : "URL",
+                "url" : "",
+                "description" : "Zeiterfassung"
+            }
+    }
+}

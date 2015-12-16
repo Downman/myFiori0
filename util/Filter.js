@@ -2,15 +2,16 @@ jQuery.sap.declare("sap.ui.demo.myFiori.util.Filter");
 jQuery.sap.require("sap.ui.core.format.DateFormat");
 sap.ui.demo.myFiori.util.Filter = {
 
-	filterDate: new Date(),
+	filterDate: new Date("December 13, 2014 11:13:00"),
 
 	filterDay: function(oDay) {
-		if (typeof oDay === 'string') {
-			oDay = oDay.replace('/DATE(', '');
-			oDay = oDay.replace(')/', '');
-			var myDate = new Date();
-			myDate.setTime(oDay);
-			oDay = myDate;
+		var oDate;
+		if (typeof oDay === "string") {
+			oDay = oDay.replace("/DATE(", "");
+			oDay = oDay.replace(")/", "");
+			oDate = new Date();
+			oDate.setTime(oDay);
+			oDay = oDate;
 
 		}
 
@@ -24,19 +25,21 @@ sap.ui.demo.myFiori.util.Filter = {
 	},
 
 	setDate: function(oDay) {
-		if (typeof oDay === 'string') {
-			oDay = oDay.replace('/Date(', '');
-			oDay = oDay.replace(')/', '');
-			var myDate = new Date();
-			myDate.setTime(oDay);
-			oDay = myDate;
+		var oDate;
+		if (typeof oDay === "string") {
+			oDay = oDay.replace("/Date(", "");
+			oDay = oDay.replace(")/", "");
+			oDate = new Date();
+			oDate.setTime(oDay);
+			oDay = oDate;
 		}
 		sap.ui.demo.myFiori.util.Filter.filterDate = oDay;
 	},
 
 	nextMonth: function() {
-		var iMonth = sap.ui.demo.myFiori.util.Filter.filterDate.getMonth();
-		var iYear = sap.ui.demo.myFiori.util.Filter.filterDate.getFullYear();
+		var iMonth, iYear;
+		iMonth = sap.ui.demo.myFiori.util.Filter.filterDate.getMonth();
+		iYear = sap.ui.demo.myFiori.util.Filter.filterDate.getFullYear();
 		if (iMonth < 11) {
 			iMonth++;
 		} else {
@@ -48,8 +51,9 @@ sap.ui.demo.myFiori.util.Filter = {
 	},
 
 	prevMonth: function() {
-		var iMonth = sap.ui.demo.myFiori.util.Filter.filterDate.getMonth();
-		var iYear = sap.ui.demo.myFiori.util.Filter.filterDate.getFullYear();
+		var iMonth, iYear;
+		iMonth = sap.ui.demo.myFiori.util.Filter.filterDate.getMonth();
+		iYear = sap.ui.demo.myFiori.util.Filter.filterDate.getFullYear();
 		if (iMonth > 0) {
 			iMonth--;
 		} else {

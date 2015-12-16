@@ -4,7 +4,7 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.App", {
 		return "sap.ui.demo.myFiori.view.App";
 	},
 
-	createContent: function(oController) {
+	createContent: function() {
 
 		// to avoid scroll bars on desktop the root view must be set to block display
 		this.setDisplayBlock(true);

@@ -31,7 +31,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.ProjectAdd", {
 	},
 
 	handleNavButtonPress: function() {
-
+		sap.ui.getCore().getEventBus().publish("nav", "back");
 	},
 
 	handleAdd: function() {

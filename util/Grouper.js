@@ -6,74 +6,52 @@ sap.ui.demo.myFiori.util.Grouper = {
 	bundle: null, // somebody has to set this
 
 	Active: function(oContext) {
-		var status = oContext.getProperty("Active");
-		var text = sap.ui.demo.myFiori.util.Grouper.bundle.getText("StatusText" + status, "?");
+		var sStatus, sText;
+		sStatus = oContext.getProperty("Active");
+		sText = sap.ui.demo.myFiori.util.Grouper.bundle.getText("StatusText" + sStatus, "?");
 		return {
-			key: status,
-			text: text
-		};
-	},
-
-	GrossAmount: function(oContext) {
-		var price = oContext.getProperty("GrossAmount");
-		var currency = oContext.getProperty("CurrencyCode");
-		var key = null,
-			text = null;
-		if (price <= 5000) {
-			key = "LE10";
-			text = "< 5000 " + currency;
-		} else if (price > 5000 && price <= 10000) {
-			key = "LE100";
-			text = "< 10.000  " + currency;
-		} else if (price > 10000) {
-			key = "GT100";
-			text = "> 10.000 " + currency;
-		}
-		return {
-			key: key,
-			text: text
+			key: sStatus,
+			text: sText
 		};
 	},
 
 	getMonth: function(oDateInMillis) {
-		var myDate = new Date();
-		myDate.setTime(oDateInMillis);
-		var month = myDate.getMonth();
-		var sMonth = sap.ui.demo.myFiori.util.Grouper.bundle.getText("StringMonth" + month, "?");
+		var oDate, oMonth, sMonth;
+		oDate = new Date();
+		oDate.setTime(oDateInMillis);
+		oMonth = oDate.getMonth();
+		sMonth = sap.ui.demo.myFiori.util.Grouper.bundle.getText("StringMonth" + oMonth, "?");
 		return sMonth;
-
 	},
 
 	getMillis: function(oDate) {
-		oDate = oDate.replace('/Date(', '');
-		oDate = oDate.replace(')/', '');
-
+		oDate = oDate.replace("/Date(", "");
+		oDate = oDate.replace(")/", "");
 		return oDate;
 	},
 
 	getYear: function(oDateInMillis) {
-		var myDate = new Date();
-		myDate.setTime(oDateInMillis);
-		return myDate.getFullYear();
+		var oDate;
+		oDate = new Date();
+		oDate.setTime(oDateInMillis);
+		return oDate.getFullYear();
 	},
 
 	Day: function(oContext) {
-
-		//var date = sap.ui.demo.myFiori.util.Grouper.getMillis(oContext.getProperty("Entryday"));
-		var date = oContext.getProperty("Entryday");
-		if (typeof date === 'string') {
-			date = sap.ui.demo.myFiori.util.Grouper.getMillis(date);
+		var oDate, sStatus, sMonth, sText;
+		oDate = oContext.getProperty("Entryday");
+		if (typeof oDate === "string") {
+			oDate = sap.ui.demo.myFiori.util.Grouper.getMillis(oDate);
 		}
+		sStatus = null;
+		sText = null;
+		sMonth = sap.ui.demo.myFiori.util.Grouper.getMonth(oDate);
 
-		var status = null,
-			text = null;
-		var sMonth = sap.ui.demo.myFiori.util.Grouper.getMonth(date);
-
-		status = sap.ui.demo.myFiori.util.Grouper.getYear(date) + sMonth;
-		text = sMonth + " " + sap.ui.demo.myFiori.util.Grouper.getYear(date);
+		sStatus = sap.ui.demo.myFiori.util.Grouper.getYear(oDate) + sMonth;
+		sText = sMonth + " " + sap.ui.demo.myFiori.util.Grouper.getYear(oDate);
 		return {
-			key: status,
-			text: text
+			key: sStatus,
+			text: sText
 		};
 	}
 };

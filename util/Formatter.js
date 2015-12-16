@@ -10,26 +10,29 @@ sap.ui.demo.myFiori.util.Formatter = {
 	},
 
 	statusText: function(value) {
-		var bundle = this.getModel("i18n").getResourceBundle();
-		return bundle.getText("StatusText" + value, "?");
+		var oBundle;
+		oBundle = this.getModel("i18n").getResourceBundle();
+		return oBundle.getText("StatusText" + value, "?");
 	},
 
 	statusState: function(value) {
-		var map = sap.ui.demo.myFiori.util.Formatter._statusStateMap;
-		return (value && map[value]) ? map[value] : "None";
+		var oMap;
+		oMap = sap.ui.demo.myFiori.util.Formatter._statusStateMap;
+		return (value && oMap[value]) ? oMap[value] : "None";
 	},
 
 	date: function(value) {
+		var oDat, oDateFormat;
 		if (value) {
-			if (typeof value === 'string') {
-				value = value.replace('/Date(', '');
-				value = value.replace(')/', '');
-				var dat = new Date();
-				dat.setTime(value);
-				value = dat;
+			if (typeof value === "string") {
+				value = value.replace("/Date(", "");
+				value = value.replace(")/", "");
+				oDat = new Date();
+				oDat.setTime(value);
+				value = oDat;
 			}
 
-			var oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({
+			oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({
 				pattern: "dd-MM-yyyy"
 			});
 
@@ -40,18 +43,14 @@ sap.ui.demo.myFiori.util.Formatter = {
 	},
 
 	oldFormat: function(value) {
+		var sMM, sdd, sRet, oDate;
 		if (value) {
-
-			var sMM;
-			var sdd;
-			var sRet;
-			var oDate;
 
 			sdd = value.substring(0, 2);
 			sMM = value.substring(3, 5);
 			sRet = sMM + "-" + sdd + value.substring(5, value.length);
 			oDate = new Date(sRet);
-			oDate.setHours(oDate.getHours()+1);
+			oDate.setHours(oDate.getHours() + 1);
 			return oDate;
 		} else {
 			return value;
@@ -59,10 +58,7 @@ sap.ui.demo.myFiori.util.Formatter = {
 	},
 
 	hoursMinutesToMs: function(sHoursMins) {
-		var iHours;
-		var iMinutes;
-		var sPTString;
-
+		var iHours, iMinutes, sPTString;
 		iHours = sHoursMins.substring(0, 2);
 		iMinutes = sHoursMins.substring(3, 5);
 		sPTString = "PT" + iHours + "H" + iMinutes + "M01S"; //PT15H01M41S
@@ -70,9 +66,7 @@ sap.ui.demo.myFiori.util.Formatter = {
 	},
 
 	msToHoursMinutes: function(iMillis) {
-		var sEntryHours;
-		var sHours;
-		var sMinutes;
+		var sEntryHours, sHours, sMinutes;
 		sHours = iMillis;
 		sHours = Math.floor(sHours / 3600000);
 		sMinutes = iMillis;
@@ -88,16 +82,17 @@ sap.ui.demo.myFiori.util.Formatter = {
 	},
 
 	myDateFormat: function(value) {
+		var oDat, oDateFormat;
 		if (value) {
-			if (typeof value === 'string') {
-				value = value.replace('/Date(', '');
-				value = value.replace(')/', '');
-				var dat = new Date();
-				dat.setTime(value);
-				value = dat;
+			if (typeof value === "string") {
+				value = value.replace("/Date(", "");
+				value = value.replace(")/", "");
+				oDat = new Date();
+				oDat.setTime(value);
+				value = oDat;
 			}
 
-			var oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({
+			oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({
 				pattern: "dd/MM/yy"
 			});
 

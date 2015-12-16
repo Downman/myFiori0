@@ -77,12 +77,21 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 		oButton.setVisible(false);
 		oBar.addContentRight(oButton);
 
+		oButton = new sap.m.Button({
+			icon: "sap-icon://delete",
+			press: [oController.handleDelete, oController],
+			text: "{i18n>DeleteButtonText}",
+			type: "Reject"
+		});
+		oButton.setVisible(false);
+		oBar.addContentRight(oButton);
+
 		return oBar;
 	},
 
 	createAddTabFilterContent: function() {
 		var oSimpleForm, oInput, oLabel, oDatePicker, oDateTimeInput;
-		oSimpleForm = new sap.ui.layout.form.SimpleForm("simpleFormAdd", {
+		oSimpleForm = new sap.ui.layout.form.SimpleForm({
 			emptySpanM: 4,
 			editable: true,
 			columnsM: 1,
@@ -103,7 +112,7 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 		});
 		oSimpleForm.addContent(oLabel);
 
-		oDatePicker = new sap.m.DatePicker("idProject1", {
+		oDatePicker = new sap.m.DatePicker({
 			displayFormat: "long",
 			value: "{path: 'Entryday', type: 'sap.ui.model.odata.type.Date'}",
 			valueFormat: "dd-MM-yyyy"
@@ -112,15 +121,15 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 		oSimpleForm.addContent(oDatePicker);
 
 		//create ActivityInput
+		oInput = new sap.ui.comp.smartfield.SmartField({
+			value: "{Activity}"
+		});
+
 		oLabel = new sap.ui.comp.smartfield.SmartLabel({
-			labelFor: "idProject2",
+			labelFor: oInput,
 			text: "{i18n>ActivityText}"
 		});
 		oSimpleForm.addContent(oLabel);
-
-		oInput = new sap.ui.comp.smartfield.SmartField("idProject2", {
-			value: "{Activity}"
-		});
 		oSimpleForm.addContent(oInput);
 
 		//create HoursInput
@@ -129,7 +138,7 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 		});
 		oSimpleForm.addContent(oLabel);
 
-		oDateTimeInput = new sap.m.DateTimeInput("idProject3", {
+		oDateTimeInput = new sap.m.DateTimeInput({
 			displayFormat: "HH'h' mm'm'",
 			placeholder: "Enter Time ...",
 			type: "Time",
@@ -145,7 +154,7 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 		});
 		oSimpleForm.addContent(oLabel);
 
-		oDateTimeInput = new sap.m.DateTimeInput("idProject4", {
+		oDateTimeInput = new sap.m.DateTimeInput({
 			displayFormat: "HH'h' mm'm'",
 			placeholder: "Enter Time ...",
 			type: "Time",
@@ -156,15 +165,15 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 		oSimpleForm.addContent(oDateTimeInput);
 
 		//create AdditionalcostInput
+		oInput = new sap.ui.comp.smartfield.SmartField({
+			value: "{Additionalcost}"
+		});
+
 		oLabel = new sap.ui.comp.smartfield.SmartLabel({
-			labelFor: "idProject5",
+			labelFor: oInput,
 			text: "{i18n>AdditionalCostText}"
 		});
 		oSimpleForm.addContent(oLabel);
-
-		oInput = new sap.ui.comp.smartfield.SmartField("idProject5", {
-			value: "{Additionalcost}"
-		});
 		oSimpleForm.addContent(oInput);
 
 		return oSimpleForm;
@@ -211,7 +220,7 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 
 	createTab: function(sName, sIcon) {
 		var oIconTabFilter;
-		oIconTabFilter = new sap.m.IconTabFilter(sName, {
+		oIconTabFilter = new sap.m.IconTabFilter({
 			key: sName,
 			icon: sIcon
 		});
@@ -219,8 +228,8 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 	},
 
 	createTable: function(oController) {
-		var oTable;
-		oTable = new sap.m.Table("idPrdList", {
+		var oTable, oCol, oColItems, oText;
+		oTable = new sap.m.Table({
 			inset: true,
 			headerText: "{i18n>OverviewText}",
 			headerDesign: sap.m.ListHeaderDesign.Standard,
@@ -228,82 +237,82 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 			includeItemInSelection: false
 		});
 
-		var col1 = new sap.m.Column("col1", {
+		oCol = new sap.m.Column({
 			header: new sap.m.Label({
 				text: "{i18n>DateText}"
 			})
 		});
-		oTable.addColumn(col1);
-		col1.setVisible(false);
+		oTable.addColumn(oCol);
+		oCol.setVisible(false);
 
-		var col2 = new sap.m.Column("col2", {
+		oCol = new sap.m.Column({
 			header: new sap.m.Label({
 				text: "{i18n>ActivityText}"
 			})
 		});
-		oTable.addColumn(col2);
-		col2.setVisible(false);
+		oTable.addColumn(oCol);
+		oCol.setVisible(false);
 
-		var col3 = new sap.m.Column("col3", {
+		oCol = new sap.m.Column({
 			header: new sap.m.Label({
 				text: "{i18n>HoursText}"
 			})
 		});
-		oTable.addColumn(col3);
+		oTable.addColumn(oCol);
 
-		var col4 = new sap.m.Column("col4", {
+		oCol = new sap.m.Column({
 			header: new sap.m.Label({
 				text: "{i18n>TravelTimeText}"
 			})
 		});
-		oTable.addColumn(col4);
-		col4.setVisible(false);
+		oTable.addColumn(oCol);
+		oCol.setVisible(false);
 
-		var col5 = new sap.m.Column("col5", {
+		oCol = new sap.m.Column({
 			header: new sap.m.Label({
 				text: "{i18n>AdditionalCostText}"
 			})
 		});
-		oTable.addColumn(col5);
-		col5.setVisible(false);
+		oTable.addColumn(oCol);
+		oCol.setVisible(false);
 
-		var colItems = new sap.m.ColumnListItem("colItems", {
+		oColItems = new sap.m.ColumnListItem({
 			type: "Navigation",
 			press: [oController.handleLineItemPress, oController]
 		});
-		oTable.bindAggregation("items", "ProjectToEntries", colItems);
+		oTable.bindAggregation("items", "ProjectToEntries", oColItems);
 
-		var txtNAME = new sap.m.Text("txtNAME", {
+		oText = new sap.m.Text({
 			text: "{path: 'Entryday', formatter: 'sap.ui.demo.myFiori.util.Formatter.date'}"
 		});
-		colItems.addCell(txtNAME);
+		oColItems.addCell(oText);
 
-		var txtNAME2 = new sap.m.Text("txtNAME2", {
+		oText = new sap.m.Text({
 			text: "{Activity}"
 		});
-		colItems.addCell(txtNAME2);
+		oColItems.addCell(oText);
 
-		var txtNAME3 = new sap.m.Text("txtNAME3", {
+		oText = new sap.m.Text({
 			text: "{path: 'Entryhours', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH\\'h\\':mm\\'min\\'', source: { pattern: 'HH:mm:ss' } } }"
 		});
-		colItems.addCell(txtNAME3);
+		oColItems.addCell(oText);
 
-		var txtNAME4 = new sap.m.Text("txtNAME4", {
+		oText = new sap.m.Text({
 			text: "{path: 'Traveltime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH\\'h\\':mm\\'min\\'', source: { pattern: 'HH:mm:ss'} } }"
 		});
-		colItems.addCell(txtNAME4);
+		oColItems.addCell(oText);
 
-		var txtNAME5 = new sap.m.Text("txtNAME5", {
+		oText = new sap.m.Text({
 			text: "{Additionalcost}"
 		});
-		colItems.addCell(txtNAME5);
+		oColItems.addCell(oText);
 
 		return oTable;
 	},
 
 	createIconTabBar: function(oController) {
 		var oIconTabBar;
-		oIconTabBar = new sap.m.IconTabBar("iconTabBar", {
+		oIconTabBar = new sap.m.IconTabBar({
 			select: [oController.handleIconTabBarSelect, oController]
 		});
 		return oIconTabBar;

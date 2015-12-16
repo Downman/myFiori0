@@ -11,14 +11,12 @@ sap.ui.controller("sap.ui.demo.myFiori.view.App", {
 	},
 
 	navTo: function(sChannelId, sEventId, oData) {
-
 		var app = this.getView().app,
 			sViewId = oData.viewId,
 			oDataObject = oData.data;
-	    
 
 		// load page on demand
-		var master = ("Master" === sViewId);
+		var master = (sViewId === "Master");
 		if (app.getPage(sViewId, master) === null) {
 			var page = sap.ui.view({
 				id: sViewId,
@@ -29,9 +27,13 @@ sap.ui.controller("sap.ui.demo.myFiori.view.App", {
 		}
 		app.toDetail(sViewId);
 		if (oDataObject.bindingContext && sViewId === "Detail") {
-			var page = app.getPage(sViewId);
-			page.getController().switchToOverview();
-			page.setBindingContext(oDataObject.bindingContext);
+			page = app.getPage(sViewId);
+			//page.setBindingContext(oDataObject.bindingContext);
+			page.bindElement(oDataObject.bindingContext.sPath);
+			page.getController().switchToOverview("context");
+		} else if (oDataObject.bindingContext && sViewId === "ProjectAdd") {
+			page = app.getPage(sViewId);
+			page.bindElement(oDataObject.bindingContext.sPath);
 		}
 	}
 
