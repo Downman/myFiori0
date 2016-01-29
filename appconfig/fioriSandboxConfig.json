@@ -1,7 +1,7 @@
 {
 "applications" : { 
-            "MyFioriObject-display" : {
-                "additionalInformation" : "SAPUI5.Component=sap.ui.demo.myFiori",
+            "XeptumObject-display" : {
+                "additionalInformation" : "SAPUI5.Component=sap.xeptum.timesheets",
                 "applicationType" : "URL",
                 "url" : "",
                 "description" : "Zeiterfassung"

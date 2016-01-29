@@ -1,12 +1,12 @@
-sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
+sap.ui.jsview("sap.xeptum.timesheets.view.Detail", {
 
 	getControllerName: function() {
-		return "sap.ui.demo.myFiori.view.Detail";
+		return "sap.xeptum.timesheets.view.Detail";
 	},
 
 	createContent: function(oController) {
 		//Create Page
-		this.page = new sap.m.Page("myPage", {
+		this.page = new sap.m.Page({
 			showNavButton: "{device>/isPhone}",
 			title: "{i18n>DetailTitle}",
 			navButtonPress: oController.handleNavButtonPress
@@ -21,7 +21,7 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 		this.Table = this.createTable(oController);
 
 		//Create SimpleForm
-		this.SimpleForm = this.createSimpleForm("TabBarForm");
+		this.SimpleForm = this.createSimpleForm();
 		this.SimpleForm.addContent(this.Table);
 
 		//Create Toolbar
@@ -195,7 +195,7 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 		oToolbar.addContent(new sap.m.ToolbarSpacer());
 
 		//create MonthLabel
-		this.MonthLabel = new sap.m.Label("monthLabel");
+		this.MonthLabel = new sap.m.Label();
 		oToolbar.addContent(this.MonthLabel);
 		oToolbar.addContent(new sap.m.ToolbarSpacer());
 
@@ -210,9 +210,9 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 		return oToolbar;
 	},
 
-	createSimpleForm: function(sId) {
+	createSimpleForm: function() {
 		var oSimpleForm;
-		oSimpleForm = new sap.ui.layout.form.SimpleForm(sId, {
+		oSimpleForm = new sap.ui.layout.form.SimpleForm({
 			minWidth: 1024
 		});
 		return oSimpleForm;
@@ -283,7 +283,7 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 		oTable.bindAggregation("items", "ProjectToEntries", oColItems);
 
 		oText = new sap.m.Text({
-			text: "{path: 'Entryday', formatter: 'sap.ui.demo.myFiori.util.Formatter.date'}"
+			text: "{path: 'Entryday', formatter: 'sap.xeptum.timesheets.util.Formatter.date'}"
 		});
 		oColItems.addCell(oText);
 
@@ -293,12 +293,13 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 		oColItems.addCell(oText);
 
 		oText = new sap.m.Text({
-			text: "{path: 'Entryhours', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH\\'h\\':mm\\'min\\'', source: { pattern: 'HH:mm:ss' } } }"
+			text: "{path: 'Entryhours', type: 'sap.ui.model.odata.type.Int', formatter: 'sap.xeptum.timesheets.util.Formatter.hours'}"
 		});
 		oColItems.addCell(oText);
 
 		oText = new sap.m.Text({
-			text: "{path: 'Traveltime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH\\'h\\':mm\\'min\\'', source: { pattern: 'HH:mm:ss'} } }"
+			text: "{path: 'Traveltime', type: 'sap.ui.model.odata.type.Int', formatter: 'sap.xeptum.timesheets.util.Formatter.hours'}"
+			//formatOptions: { pattern: 'HH\\'h\\':mm\\'min\\'', source: { pattern: 'HH:mm:ss'} } }"
 		});
 		oColItems.addCell(oText);
 
@@ -333,18 +334,18 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.Detail", {
 		oHeader.addAttribute(oAttributes);
 
 		oAttributes = new sap.m.ObjectAttribute({
-			text: "{ path: 'Startdate', formatter: 'sap.ui.demo.myFiori.util.Formatter.date'}"
+			text: "{ path: 'Startdate', formatter: 'sap.xeptum.timesheets.util.Formatter.date'}"
 		});
 		oHeader.addAttribute(oAttributes);
 
 		oAttributes = new sap.m.ObjectAttribute({
-			text: "{ path: 'Enddate', formatter: 'sap.ui.demo.myFiori.util.Formatter.date' }"
+			text: "{ path: 'Enddate', formatter: 'sap.xeptum.timesheets.util.Formatter.date' }"
 		});
 		oHeader.addAttribute(oAttributes);
 
 		oStatus = new sap.m.ObjectStatus({
-			state: "{ path: 'Active', formatter: 'sap.ui.demo.myFiori.util.Formatter.statusState' }",
-			text: "{ path: 'Active', formatter: 'sap.ui.demo.myFiori.util.Formatter.statusText' }"
+			state: "{ path: 'Active', formatter: 'sap.xeptum.timesheets.util.Formatter.statusState' }",
+			text: "{ path: 'Active', formatter: 'sap.xeptum.timesheets.util.Formatter.statusText' }"
 		});
 		oHeader.addStatus(oStatus);
 		return oHeader;

@@ -1,10 +1,10 @@
-jQuery.sap.require("sap.ui.demo.myFiori.util.Formatter");
+jQuery.sap.require("sap.xeptum.timesheets.util.Formatter");
 jQuery.sap.require("sap.m.MessageBox");
 jQuery.sap.require("sap.m.MessageToast");
-jQuery.sap.require("sap.ui.demo.myFiori.util.Grouper");
-jQuery.sap.require("sap.ui.demo.myFiori.util.Filter");
+jQuery.sap.require("sap.xeptum.timesheets.util.Grouper");
+jQuery.sap.require("sap.xeptum.timesheets.util.Filter");
 
-sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
+sap.ui.core.mvc.Controller.extend("sap.xeptum.timesheets.view.Detail", {
 
 	oTable: null,
 
@@ -19,6 +19,45 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 			Currency: "Enter Currency",
 			Entryuser: "Enter Username"
 	}]
+	},
+
+	onInit: function() {
+		var oRouter = this.getRouter();
+		oRouter.getRoute("project").attachMatched(this.onRouteMatched, this);
+	},
+
+	onRouteMatched: function(oEvent) {
+		var oView = this.getView();
+		// when detail navigation occurs, update the binding context
+		if (oEvent.getParameter("name") === "project") {
+
+			var sProductPath = "/" + oEvent.getParameter("arguments").entity;
+
+			oView.bindElement(sProductPath);
+
+			// Check that the product specified actually was found
+			oView.getElementBinding().attachEventOnce("dataReceived", jQuery.proxy(function() {
+				var oData = oView.getModel().getData(sProductPath);
+				if (!oData) {
+					sap.ui.core.UIComponent.getRouterFor(this).myNavToWithoutHash({
+						currentView: oView,
+						targetViewName: "sap.xeptum.timesheets.view.NotFound",
+						targetViewType: "XML"
+					});
+				}
+			}, this));
+			this.switchToOverview("context");
+			// Make sure the master is here
+		}
+	},
+
+	getEventBus: function() {
+		var sComponentId = sap.ui.core.Component.getOwnerIdFor(this.getView());
+		return sap.ui.component(sComponentId).getEventBus();
+	},
+
+	getRouter: function() {
+		return sap.ui.core.UIComponent.getRouterFor(this);
 	},
 
 	//nav Button on Mobile devices
@@ -46,10 +85,10 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 	//initialize the Overview content with groups
 	initOverview: function() {
 		var sorters, grouper, oTable, oItem, oItemTemplate;
-		sap.ui.demo.myFiori.util.Grouper.bundle = this.getView().getModel("i18n").getResourceBundle();
+		sap.xeptum.timesheets.util.Grouper.bundle = this.getView().getModel("i18n").getResourceBundle();
 
 		sorters = [];
-		grouper = sap.ui.demo.myFiori.util.Grouper.Day;
+		grouper = sap.xeptum.timesheets.util.Grouper.Day;
 		sorters.push(new sap.ui.model.Sorter("Entryday", true, grouper));
 
 		oTable = this.getView().Table;
@@ -132,8 +171,8 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 		this.setVisibility("Detail");
 		if (evt != null) {
 			oDate = evt.getSource().mAggregations.cells[0].mProperties.text;
-			oDate = sap.ui.demo.myFiori.util.Formatter.oldFormat(oDate);
-			sap.ui.demo.myFiori.util.Filter.setDate(oDate);
+			oDate = sap.xeptum.timesheets.util.Formatter.oldFormat(oDate);
+			sap.xeptum.timesheets.util.Filter.setDate(oDate);
 		}
 		this.updateMonthFilter();
 
@@ -162,7 +201,7 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 		}
 
 		sorters = [];
-		grouper = sap.ui.demo.myFiori.util.Grouper.Day;
+		grouper = sap.xeptum.timesheets.util.Grouper.Day;
 		sorters.push(new sap.ui.model.Sorter("Entryday", true, grouper));
 
 		oTable = this.getView().Table;
@@ -205,9 +244,9 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 						oData.Activity = that.newEntry.ProjectToEntries[0].Activity;
 						oData.Additionalcost = Number(that.newEntry.ProjectToEntries[0].Additionalcost);
 
-						oData.Entryday = sap.ui.demo.myFiori.util.Formatter.oldFormat(that.newEntry.ProjectToEntries[0].Entryday);
-						oData.Entryhours = sap.ui.demo.myFiori.util.Formatter.hoursMinutesToMs(that.newEntry.ProjectToEntries[0].Entryhours);
-						oData.Traveltime = sap.ui.demo.myFiori.util.Formatter.hoursMinutesToMs(that.newEntry.ProjectToEntries[0].Traveltime);
+						oData.Entryday = sap.xeptum.timesheets.util.Formatter.oldFormat(that.newEntry.ProjectToEntries[0].Entryday);
+						oData.Entryhours = sap.xeptum.timesheets.util.Formatter.hoursMinutesToS(that.newEntry.ProjectToEntries[0].Entryhours);
+						oData.Traveltime = sap.xeptum.timesheets.util.Formatter.hoursMinutesToS(that.newEntry.ProjectToEntries[0].Traveltime);
 
 						sUpdate = "ZmnTimeEntrySet(Mandt='800',Timeentryid=" + sTimeentryid + ")";
 						oModel.update(sUpdate, oData, null, function() {
@@ -230,9 +269,9 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 		oData.Activity = this.newEntry.ProjectToEntries[0].Activity;
 		oData.Additionalcost = Number(this.newEntry.ProjectToEntries[0].Additionalcost);
 
-		oData.Entryday = sap.ui.demo.myFiori.util.Formatter.oldFormat(this.newEntry.ProjectToEntries[0].Entryday);
-		oData.Entryhours = sap.ui.demo.myFiori.util.Formatter.hoursMinutesToMs(this.newEntry.ProjectToEntries[0].Entryhours);
-		oData.Traveltime = sap.ui.demo.myFiori.util.Formatter.hoursMinutesToMs(this.newEntry.ProjectToEntries[0].Traveltime);
+		oData.Entryday = sap.xeptum.timesheets.util.Formatter.oldFormat(this.newEntry.ProjectToEntries[0].Entryday);
+		oData.Entryhours = sap.xeptum.timesheets.util.Formatter.hoursMinutesToS(this.newEntry.ProjectToEntries[0].Entryhours);
+		oData.Traveltime = sap.xeptum.timesheets.util.Formatter.hoursMinutesToS(this.newEntry.ProjectToEntries[0].Traveltime);
 		oData.Projectid = parseInt(this.getView().Header.getNumber());
 
 		oModel.create("ZmnTimeEntrySet", oData, null, function() {
@@ -279,9 +318,9 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 		var oContext, oEntry, sEntryHours, sTraveltime, sEntryday;
 		oContext = evt.getSource().getBindingContext();
 		oEntry = oContext.oModel.getProperty(oContext.sPath, oContext);
-		sEntryHours = sap.ui.demo.myFiori.util.Formatter.msToHoursMinutes(oEntry.Entryhours.ms);
-		sTraveltime = sap.ui.demo.myFiori.util.Formatter.msToHoursMinutes(oEntry.Traveltime.ms);
-		sEntryday = sap.ui.demo.myFiori.util.Formatter.date(oEntry.Entryday);
+		sEntryHours = sap.xeptum.timesheets.util.Formatter.msToHoursMinutes(oEntry.Entryhours);
+		sTraveltime = sap.xeptum.timesheets.util.Formatter.msToHoursMinutes(oEntry.Traveltime);
+		sEntryday = sap.xeptum.timesheets.util.Formatter.date(oEntry.Entryday);
 
 		this.newEntry.ProjectToEntries[0].Timeentryid = oEntry.Timeentryid;
 		this.newEntry.ProjectToEntries[0].Entryday = sEntryday;
@@ -310,11 +349,11 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 	updateMonthFilter: function() {
 		var oFilter, oLabel, sMillis, sMonth, oTable, oItem, oItemTemplate;
 		oLabel = this.getView().MonthLabel;
-		sMillis = sap.ui.demo.myFiori.util.Filter.filterDate.getTime();
-		sMonth = sap.ui.demo.myFiori.util.Grouper.getMonth(sMillis);
-		oLabel.setText(sMonth + " " + sap.ui.demo.myFiori.util.Filter.filterDate.getFullYear());
+		sMillis = sap.xeptum.timesheets.util.Filter.filterDate.getTime();
+		sMonth = sap.xeptum.timesheets.util.Grouper.getMonth(sMillis);
+		oLabel.setText(sMonth + " " + sap.xeptum.timesheets.util.Filter.filterDate.getFullYear());
 
-		oFilter = new sap.ui.model.Filter("Entryday", sap.ui.model.FilterOperator.EQ, sap.ui.demo.myFiori.util.Filter.filterDate.getTime());
+		oFilter = new sap.ui.model.Filter("Entryday", sap.ui.model.FilterOperator.EQ, sap.xeptum.timesheets.util.Filter.filterDate.getTime());
 
 		oTable = this.getView().Table;
 		oItem = oTable.mBindingInfos.items.template;
@@ -330,13 +369,13 @@ sap.ui.controller("sap.ui.demo.myFiori.view.Detail", {
 
 	//set next month and update Filterbinding
 	nextMonth: function() {
-		sap.ui.demo.myFiori.util.Filter.nextMonth();
+		sap.xeptum.timesheets.util.Filter.nextMonth();
 		this.updateMonthFilter();
 	},
 
 	//set previous month and update Filterbinding
 	prevMonth: function() {
-		sap.ui.demo.myFiori.util.Filter.prevMonth();
+		sap.xeptum.timesheets.util.Filter.prevMonth();
 		this.updateMonthFilter();
 	}
 });

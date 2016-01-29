@@ -1,6 +1,6 @@
-jQuery.sap.declare("sap.ui.demo.myFiori.util.Filter");
+jQuery.sap.declare("sap.xeptum.timesheets.util.Filter");
 jQuery.sap.require("sap.ui.core.format.DateFormat");
-sap.ui.demo.myFiori.util.Filter = {
+sap.xeptum.timesheets.util.Filter = {
 
 	filterDate: new Date("December 13, 2014 11:13:00"),
 
@@ -16,7 +16,7 @@ sap.ui.demo.myFiori.util.Filter = {
 		}
 
 		oDay.setTime(oDay);
-		if (sap.ui.demo.myFiori.util.Filter.filterDate.getMonth() === oDay.getMonth() && sap.ui.demo.myFiori.util.Filter.filterDate.getFullYear() ===
+		if (sap.xeptum.timesheets.util.Filter.filterDate.getMonth() === oDay.getMonth() && sap.xeptum.timesheets.util.Filter.filterDate.getFullYear() ===
 			oDay.getFullYear()) {
 			return true;
 		} else {
@@ -33,35 +33,35 @@ sap.ui.demo.myFiori.util.Filter = {
 			oDate.setTime(oDay);
 			oDay = oDate;
 		}
-		sap.ui.demo.myFiori.util.Filter.filterDate = oDay;
+		sap.xeptum.timesheets.util.Filter.filterDate = oDay;
 	},
 
 	nextMonth: function() {
 		var iMonth, iYear;
-		iMonth = sap.ui.demo.myFiori.util.Filter.filterDate.getMonth();
-		iYear = sap.ui.demo.myFiori.util.Filter.filterDate.getFullYear();
+		iMonth = sap.xeptum.timesheets.util.Filter.filterDate.getMonth();
+		iYear = sap.xeptum.timesheets.util.Filter.filterDate.getFullYear();
 		if (iMonth < 11) {
 			iMonth++;
 		} else {
 			iMonth = 0;
 			iYear++;
-			sap.ui.demo.myFiori.util.Filter.filterDate.setFullYear(iYear);
+			sap.xeptum.timesheets.util.Filter.filterDate.setFullYear(iYear);
 		}
-		sap.ui.demo.myFiori.util.Filter.filterDate.setMonth(iMonth);
+		sap.xeptum.timesheets.util.Filter.filterDate.setMonth(iMonth);
 	},
 
 	prevMonth: function() {
 		var iMonth, iYear;
-		iMonth = sap.ui.demo.myFiori.util.Filter.filterDate.getMonth();
-		iYear = sap.ui.demo.myFiori.util.Filter.filterDate.getFullYear();
+		iMonth = sap.xeptum.timesheets.util.Filter.filterDate.getMonth();
+		iYear = sap.xeptum.timesheets.util.Filter.filterDate.getFullYear();
 		if (iMonth > 0) {
 			iMonth--;
 		} else {
 			iMonth = 11;
 			iYear--;
-			sap.ui.demo.myFiori.util.Filter.filterDate.setFullYear(iYear);
+			sap.xeptum.timesheets.util.Filter.filterDate.setFullYear(iYear);
 		}
-		sap.ui.demo.myFiori.util.Filter.filterDate.setMonth(iMonth);
+		sap.xeptum.timesheets.util.Filter.filterDate.setMonth(iMonth);
 	}
 
 };

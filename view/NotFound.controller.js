@@ -1,0 +1,1 @@
+sap.ui.core.mvc.Controller.extend("sap.xeptum.timesheets.view.NotFound", {});

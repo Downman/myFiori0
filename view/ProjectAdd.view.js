@@ -1,7 +1,7 @@
-sap.ui.jsview("sap.ui.demo.myFiori.view.ProjectAdd", {
+sap.ui.jsview("sap.xeptum.timesheets.view.ProjectAdd", {
 
 	getControllerName: function() {
-		return "sap.ui.demo.myFiori.view.ProjectAdd";
+		return "sap.xeptum.timesheets.view.ProjectAdd";
 	},
 
 	createContent: function(oController) {
@@ -80,7 +80,7 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.ProjectAdd", {
 
 		oDatePicker = new sap.m.DatePicker({
 			displayFormat: "long",
-			value: "{path: 'Startdate', formatter: 'sap.ui.demo.myFiori.util.Formatter.date'}",
+			value: "{path: 'Startdate', formatter: 'sap.xeptum.timesheets.util.Formatter.date'}",
 		//	value: "{path: 'Startdate', type: 'sap.ui.model.odata.type.Date'}",
 			valueFormat: "dd-MM-yyyy"
 		});
@@ -95,7 +95,7 @@ sap.ui.jsview("sap.ui.demo.myFiori.view.ProjectAdd", {
 
 		oDatePicker = new sap.m.DatePicker({
 			displayFormat: "long",
-			value: "{path: 'Enddate', formatter: 'sap.ui.demo.myFiori.util.Formatter.date'}",
+			value: "{path: 'Enddate', formatter: 'sap.xeptum.timesheets.util.Formatter.date'}",
 			//	value: "{path: 'Enddate', type: 'sap.ui.model.odata.type.Date'}",
 			valueFormat: "dd-MM-yyyy"
 		});

@@ -1,14 +1,14 @@
-jQuery.sap.declare("sap.ui.demo.myFiori.util.Grouper");
-jQuery.sap.require("sap.ui.demo.myFiori.util.Formatter");
+jQuery.sap.declare("sap.xeptum.timesheets.util.Grouper");
+jQuery.sap.require("sap.xeptum.timesheets.util.Formatter");
 
-sap.ui.demo.myFiori.util.Grouper = {
+sap.xeptum.timesheets.util.Grouper = {
 
 	bundle: null, // somebody has to set this
 
 	Active: function(oContext) {
 		var sStatus, sText;
 		sStatus = oContext.getProperty("Active");
-		sText = sap.ui.demo.myFiori.util.Grouper.bundle.getText("StatusText" + sStatus, "?");
+		sText = sap.xeptum.timesheets.util.Grouper.bundle.getText("StatusText" + sStatus, "?");
 		return {
 			key: sStatus,
 			text: sText
@@ -20,7 +20,7 @@ sap.ui.demo.myFiori.util.Grouper = {
 		oDate = new Date();
 		oDate.setTime(oDateInMillis);
 		oMonth = oDate.getMonth();
-		sMonth = sap.ui.demo.myFiori.util.Grouper.bundle.getText("StringMonth" + oMonth, "?");
+		sMonth = sap.xeptum.timesheets.util.Grouper.bundle.getText("StringMonth" + oMonth, "?");
 		return sMonth;
 	},
 
@@ -41,14 +41,14 @@ sap.ui.demo.myFiori.util.Grouper = {
 		var oDate, sStatus, sMonth, sText;
 		oDate = oContext.getProperty("Entryday");
 		if (typeof oDate === "string") {
-			oDate = sap.ui.demo.myFiori.util.Grouper.getMillis(oDate);
+			oDate = sap.xeptum.timesheets.util.Grouper.getMillis(oDate);
 		}
 		sStatus = null;
 		sText = null;
-		sMonth = sap.ui.demo.myFiori.util.Grouper.getMonth(oDate);
+		sMonth = sap.xeptum.timesheets.util.Grouper.getMonth(oDate);
 
-		sStatus = sap.ui.demo.myFiori.util.Grouper.getYear(oDate) + sMonth;
-		sText = sMonth + " " + sap.ui.demo.myFiori.util.Grouper.getYear(oDate);
+		sStatus = sap.xeptum.timesheets.util.Grouper.getYear(oDate) + sMonth;
+		sText = sMonth + " " + sap.xeptum.timesheets.util.Grouper.getYear(oDate);
 		return {
 			key: sStatus,
 			text: sText

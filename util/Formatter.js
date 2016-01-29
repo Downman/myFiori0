@@ -1,8 +1,8 @@
-jQuery.sap.declare("sap.ui.demo.myFiori.util.Formatter");
+jQuery.sap.declare("sap.xeptum.timesheets.util.Formatter");
 
 jQuery.sap.require("sap.ui.core.format.DateFormat");
 
-sap.ui.demo.myFiori.util.Formatter = {
+sap.xeptum.timesheets.util.Formatter = {
 
 	_statusStateMap: {
 		"1": "Success",
@@ -17,8 +17,26 @@ sap.ui.demo.myFiori.util.Formatter = {
 
 	statusState: function(value) {
 		var oMap;
-		oMap = sap.ui.demo.myFiori.util.Formatter._statusStateMap;
+		oMap = sap.xeptum.timesheets.util.Formatter._statusStateMap;
 		return (value && oMap[value]) ? oMap[value] : "None";
+	},
+
+	hours: function(value) {
+		var sHour, sMin, sRet;
+		if (typeof value === "number") {
+			sHour = Math.floor(value / 3600);
+		} else {
+			sHour = Math.floor(value.replace('.', '') / 3600);
+		}
+		if (sHour < 10) {
+			sHour = "0" + sHour;
+		}
+		sMin = Math.floor((value % 3600) / 60);
+		if (sMin < 10) {
+			sMin = "0" + sMin;
+		}
+		sRet = sHour + "h:" + sMin + "min";
+		return sRet;
 	},
 
 	date: function(value) {
@@ -43,38 +61,43 @@ sap.ui.demo.myFiori.util.Formatter = {
 	},
 
 	oldFormat: function(value) {
-		var sMM, sdd, sRet, oDate;
+		var sMM, sdd, sRet, oDate, sYYYY;
 		if (value) {
 
 			sdd = value.substring(0, 2);
 			sMM = value.substring(3, 5);
+			sYYYY = value.substring(6, 10);
 			sRet = sMM + "-" + sdd + value.substring(5, value.length);
-			oDate = new Date(sRet);
-			oDate.setHours(oDate.getHours() + 1);
+			//oDate = new Date(sRet);
+			//oDate.setHours(oDate.getHours() + 1);
+			oDate = new Date();
+			oDate.setFullYear(sYYYY);
+			oDate.setMonth(sMM - 1);
+			oDate.setDate(sdd);
 			return oDate;
 		} else {
 			return value;
 		}
 	},
 
-	hoursMinutesToMs: function(sHoursMins) {
-		var iHours, iMinutes, sPTString;
+	hoursMinutesToS: function(sHoursMins) {
+		var iHours, iMinutes, iRet;
 		iHours = sHoursMins.substring(0, 2);
 		iMinutes = sHoursMins.substring(3, 5);
-		sPTString = "PT" + iHours + "H" + iMinutes + "M01S"; //PT15H01M41S
-		return sPTString;
+		iRet = (iHours * 3600) + (iMinutes * 60);
+		return iRet;
 	},
 
-	msToHoursMinutes: function(iMillis) {
+	msToHoursMinutes: function(iSeconds) {
 		var sEntryHours, sHours, sMinutes;
-		sHours = iMillis;
-		sHours = Math.floor(sHours / 3600000);
-		sMinutes = iMillis;
-		sMinutes = Math.floor((sMinutes % 3600000) / 60000);
-		if (sHours < 9) {
+		sHours = iSeconds;
+		sHours = Math.floor(sHours / 3600);
+		sMinutes = iSeconds;
+		sMinutes = Math.floor((sMinutes % 3600) / 60);
+		if (sHours < 10) {
 			sHours = "0" + sHours;
 		}
-		if (sMinutes < 9) {
+		if (sMinutes < 10) {
 			sMinutes = "0" + sMinutes;
 		}
 		sEntryHours = sHours + ":" + sMinutes;

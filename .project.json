@@ -1,18 +1,4 @@
 {
-  "translation": {
-    "translationDomain": "",
-    "supportedLanguages": "",
-    "defaultLanguage": "",
-    "defaultI18NPropertyFile": "",
-    "resourceModelName": ""
-  },
-  "mockpreview": {
-    "mockUri": "",
-    "metadataFilePath": "model/metadata.xml",
-    "mockRequestsFilePath": "",
-    "loadJSONFiles": false,
-    "loadCustomRequests": false
-  },
   "deploy": {
     "destination": "X07",
     "name": "ZMN_FIRSTAPP"
